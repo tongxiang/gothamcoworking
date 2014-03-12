@@ -1,7 +1,6 @@
 // 'use strict';
 
 var mongoose = require('mongoose');
-    // mongoose.connect('mongodb://localhost/cwspaces');
 
 var Schema = mongoose.Schema;
 
