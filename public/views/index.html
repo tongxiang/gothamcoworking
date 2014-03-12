@@ -111,7 +111,7 @@
 
             <!-- Carousel
             ================================================== -->
-            <div class="row">
+<!--             <div class="row">
                 <div class="span12">
                     <div class="flexslider">
                       <ul class="slides">
@@ -121,217 +121,57 @@
                       </ul>
                     </div>
                 </div>
+            </div> -->
 
-            </div>
+            <script>
+            //  $(window).load(function(){
+            //     console.log("window is loading");
+            //     // debugger;
+            //     console.log(".flexslider array length",$('.flexslider').length);
 
-<script>
-//  $(window).load(function(){
-//     console.log("window is loading");
-//     // debugger;
-//     console.log(".flexslider array length",$('.flexslider').length);
+            //     $('.flexslider').flexslider({
+            //         animation: "slide",
+            //         slideshow: true,
+            //         start: function(slider){
+            //           console.log("flexsider is running");
+            //           $('body').removeClass('loading');
+            //         }
+            //     });  
+            // });
+            </script>
 
-//     $('.flexslider').flexslider({
-//         animation: "slide",
-//         slideshow: true,
-//         start: function(slider){
-//           console.log("flexsider is running");
-//           $('body').removeClass('loading');
-//         }
-//     });  
-// });
-</script>
-
-            <h4 class="title-bg">Coworking Spaces</h4>
-            <div class="row">
-                <div class="span6">
-                    <img src="img/gallery/gallery-img-1-2col.jpg" alt="image">
-                    <h5>Brooklyn</h5>
-                    <p>As God as my witness, with the sickness of a cannibalist cannibus, I floats like a cumulus.
-</p>
-                </div>
-                <div class="span6">
-                    <img src="img/gallery/gallery-img-2-2col.jpg" alt="image">
-                    <h5>Manhattan</h5>
-                    <p>I was a fiend before I became a teen, 
-                    I melted microphones instead of cones of ice cream.</p>
-                </div>
-            </div>
-
-        </div> 
-
-        <ul>
-            <div class="cwspaceindex" data-ng-repeat="cwspace in cwspaces">
-                <h3>{{cwspace.cwspace_name}} - {{cwspace.neighborhood}}</h3>
-                    <img class="photobox" ng-src='/img/interiorshots/{{cwspace.interiorphoto_filename}}'/>
-                <div>{{cwspace.description}}</div>
-                <br>
-            </div>
-        </ul>
-
-        
+            
+        </div>  
     </div>
     
-        <div class="row">
-
+    <div class="row">
+            <h4 class="title-bg">Coworking Spaces</h4>
         <!-- Gallery Items
         ================================================== --> 
         <div class="span12 gallery">
 
             <ul id="filterOptions" class="gallery-cats clearfix">
                 <li class="active"><a href="#" class="all">All</a></li> 
-                <li><a href="#" class="tag1">Tag 1</a></li>
-                <li><a href="#" class="tag2">Tag 2</a></li>
-                <li><a href="#" class="tag3">Tag 3</a></li>
-                <li><a href="#" class="tag4">Tag 4</a></li>
+                <li><a href="#" class="tag1">Manhattan</a></li>
+                <li><a href="#" class="tag2">Brooklyn</a></li>
+                <li><a href="#" class="tag3">The Bronx</a></li>
+                <li><a href="#" class="tag4">Queens</a></li>
+                <li><a href="#" class="tag5">Staten Island</a></li>
             </ul>
 
             <div class="row clearfix">
                 <ul class="gallery-post-grid holder">
-
                     <!-- Gallery Item 1 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag1">
+                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag1" data-ng-repeat="cwspace in cwspaces">
                         <span class="gallery-hover-6col hidden-phone hidden-tablet">
                             <span class="gallery-icons">
                                 <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
                                 <a href="gallery-single.htm" class="item-details-link"></a>
                             </span>
                         </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-1-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">L33T Coworking Space</a>160 Pearl Street, Floor 6 <br> Manhattan </span>
+                        <a href="gallery-single.htm"><img src="/img/interiorshots/{{cwspace.interiorphoto_filename}}" alt="Gallery"></a>
+                        <span class="project-details"><a href="gallery-single.htm">{{cwspace.cwspace_name}}</a>{{cwspace.neighborhood}}</span>
                     </li>
-
-                    <!-- Gallery Item 2 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag1">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-2-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">L33T Coworking Space</a>160 Pearl Street, Floor 6 <br> Manhattan </span>
-                    </li>
-
-                    <!-- Gallery Item 3 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag2">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-3-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">L33T Coworking Space</a>160 Pearl Street, Floor 6 <br> Manhattan </span>
-                    </li>
-
-                    <!-- Gallery Item 4 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag3">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-4-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">L33T Coworking Space</a>160 Pearl Street, Floor 6 <br> Manhattan </span>
-                    </li>
-
-                    <!-- Gallery Item 5 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag3">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-5-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">L33T Coworking Space</a>160 Pearl Street, Floor 6 <br> Manhattan </span>
-                    </li>
-
-                    <!-- Gallery Item 6 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag4">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-6-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">L33T Coworking Space</a>160 Pearl Street, Floor 6 <br> Manhattan </span>
-                    </li>
-
-                    <!-- Gallery Item 7 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag4">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-6-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">L33T Coworking Space</a>160 Pearl Street, Floor 6 <br> Manhattan </span>
-                    </li>
-
-                    <!-- Gallery Item 8 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag2">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-2-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">L33T Coworking Space</a>160 Pearl Street, Floor 6 <br> Manhattan </span>
-                    </li>
-
-                    <!-- Gallery Item 9 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag2">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-1-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">L33T Coworking Space</a>160 Pearl Street, Floor 6 <br> Manhattan </span>
-                    </li>
-
-                    <!-- Gallery Item 10 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag4">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-3-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">L33T Coworking Space</a>160 Pearl Street, Floor 6 <br> Manhattan </span>
-                    </li>
-
-                    <!-- Gallery Item 11 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag2">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-5-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">L33T Coworking Space</a>160 Pearl Street, Floor 6 <br> Manhattan </span>
-                    </li>
-
-                    <!-- Gallery Item 12 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag4">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-4-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">L33T Coworking Space</a>160 Pearl Street, Floor 6 <br> Manhattan </span>
-                    </li>
-
                 </ul>
             </div>
 
