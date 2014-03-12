@@ -46,48 +46,48 @@
 
 <!-- Application Services -->
 <script type="text/javascript" src="/js/services/global.js"></script>
-<script type="text/javascript" src="/js/services/articles.js"></script>
+<script type="text/javascript" src="/js/services/cwspaces.js"></script>
 
 <!-- Application Controllers -->
-<script type="text/javascript" src="/js/controllers/articles.js"></script>
+<script type="text/javascript" src="/js/controllers/cwspaces.js"></script>
 <script type="text/javascript" src="/js/controllers/index.js"></script>
 <script type="text/javascript" src="/js/controllers/header.js"></script>
 <script type="text/javascript" src="/js/init.js"></script>
 
 <script>
 
-$(document).ready(function () {
+// $(document).ready(function () {
 
-    $("#btn-blog-next").click(function () {
-      $('#blogCarousel').carousel('next')
-    });
-     $("#btn-blog-prev").click(function () {
-      $('#blogCarousel').carousel('prev')
-    });
+//     $("#btn-blog-next").click(function () {
+//       $('#blogCarousel').carousel('next')
+//     });
+//      $("#btn-blog-prev").click(function () {
+//       $('#blogCarousel').carousel('prev')
+//     });
 
-     $("#btn-client-next").click(function () {
-      $('#clientCarousel').carousel('next')
-    });
-     $("#btn-client-prev").click(function () {
-      $('#clientCarousel').carousel('prev')
-    });
+//      $("#btn-client-next").click(function () {
+//       $('#clientCarousel').carousel('next')
+//     });
+//      $("#btn-client-prev").click(function () {
+//       $('#clientCarousel').carousel('prev')
+//     });
     
-});
+// });
 
- $(window).load(function(){
-    console.log("window is loading");
-    // debugger;
-    console.log(".flexslider array length",$('.flexslider').length);
+//  $(window).load(function(){
+//     // console.log("window is loading");
+//     // debugger;
+//     // console.log(".flexslider array length",$('.flexslider').length);
 
-    $('.flexslider').flexslider({
-        animation: "slide",
-        slideshow: true,
-        start: function(slider){
-          console.log("flexsider is running");
-          $('body').removeClass('loading');
-        }
-    });  
-});
+//     $('.flexslider').flexslider({
+//         animation: "slide",
+//         slideshow: true,
+//         start: function(slider){
+//           // console.log("flexsider is running");
+//           $('body').removeClass('loading');
+//         }
+//     });  
+// });
 </script>
 
 

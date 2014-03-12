@@ -1,6 +1,6 @@
 <body class="home">
 
-<section data-ng-controller="IndexController">
+<section data-ng-controller="CwspacesController" data-ng-init="find()" >
     <!-- Color Bars (above header)-->
     <div class="color-bar-1"></div>
     <div class="color-bar-2 color-bg"></div>
@@ -107,7 +107,7 @@
     <div class="row">
         <div class="span12">
             <h2>Gotham Coworking</h2>
-            <p class="lead">The most comprehensive guide to New York City's coworking spaces. Discover, explore, share, your own place to innovate. Creativity, productivity, innovation, buzzwords out the ass</p>
+            <p class="lead">The most comprehensive guide to New York City's coworking spaces. Discover, explore, share, your own place to innovate. Creativity, productivity, innovation, buzzwords</p>
 
             <!-- Carousel
             ================================================== -->
@@ -117,7 +117,7 @@
                       <ul class="slides">
                         <li><a href="gallery-single.htm"><img src="img/gallery/slider1.jpg" alt="slider"></a></li>
                         <li><a href="gallery-single.htm"><img src="img/gallery/slider2.jpg" alt="slider"></a></li>
-                        <li><a href="gallery-single.htm"><img src="img/gallery/slider3.jpg" alt="slider"></a></li>
+                        <li><a href="gallery-single.htm"><img src="img/gallery/gothamcoworkingwhiteboard.jpg" alt="slider"></a></li>
                       </ul>
                     </div>
                 </div>
@@ -146,16 +146,29 @@
                 <div class="span6">
                     <img src="img/gallery/gallery-img-1-2col.jpg" alt="image">
                     <h5>Brooklyn</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mattis lorem, quis gravida nunc iaculis ac. Proin tristique tellus in est vulputate luctus fermentum ipsum molestie. Vivamus tincidunt sem eu magna varius elementum. Maecenas felis tellus, fermentum vitae laoreet vitae, volutpat et urna. Nulla faucibus ligula eget ante varius ac euismod odio placerat. Nam sit amet felis non lorem faucibus rhoncus vitae id dui.</p>
+                    <p>As God as my witness, with the sickness of a cannibalist cannibus, I floats like a cumulus.
+</p>
                 </div>
                 <div class="span6">
                     <img src="img/gallery/gallery-img-2-2col.jpg" alt="image">
                     <h5>Manhattan</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mattis lorem, quis gravida nunc iaculis ac. Proin tristique tellus in est vulputate luctus fermentum ipsum molestie. Vivamus tincidunt sem eu magna varius elementum. Maecenas felis tellus, fermentum vitae laoreet vitae, volutpat et urna. Nulla faucibus ligula eget ante varius ac euismod odio placerat. Nam sit amet felis non lorem faucibus rhoncus vitae id dui.</p>
+                    <p>I was a fiend before I became a teen, 
+                    I melted microphones instead of cones of ice cream.</p>
                 </div>
             </div>
 
         </div> 
+
+        <ul>
+            <div class="cwspaceindex" data-ng-repeat="cwspace in cwspaces">
+                <h3>{{cwspace.cwspace_name}} - {{cwspace.neighborhood}}</h3>
+                    <img class="photobox" ng-src='/img/interiorshots/{{cwspace.interiorphoto_filename}}'/>
+                <div>{{cwspace.description}}</div>
+                <br>
+            </div>
+        </ul>
+
+        
     </div>
     
         <div class="row">

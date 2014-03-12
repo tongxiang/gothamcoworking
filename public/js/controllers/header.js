@@ -1,15 +1,17 @@
 'use strict';
 
-angular.module('mean.system').controller('HeaderController', ['$scope', 'Global', function ($scope, Global) {
+angular.module('gothamcoworking.system').controller('HeaderController', ['$scope', 'Global', function ($scope, Global) {
     $scope.global = Global;
 
     $scope.menu = [{
-        'title': 'Articles',
-        'link': 'articles'
+        'title': 'Cwspaces',
+        'link': 'cwspaces'
     }, {
-        'title': 'Create New Article',
-        'link': 'articles/create'
+        'title': 'Create New Cwspace',
+        'link': 'cwspaces/create'
     }];
     
     $scope.isCollapsed = false;
 }]);
+
+//Controller for header bar << this has been cleared from the server-side template view, so it shouldn't appear. But it might. 

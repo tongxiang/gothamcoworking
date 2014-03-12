@@ -5,7 +5,11 @@ var seedData = require('./cwspace_seeddata.json');
 
 var Cwspace = cwspaceModel.Cwspace;
 
-// var mongoose = require('mongoose');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/cwspaces', function(err){
+    if (err) throw err;
+});
+
 console.log('Inserting coworking space data');
 
 seedData.forEach(function(coworkingspace){
