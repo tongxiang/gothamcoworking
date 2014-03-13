@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 var mongoose = require('mongoose');
 
@@ -34,5 +34,11 @@ var CwspaceSchema = new Schema({
     amenities: String,
     owner: String
 });
+
+CwspaceSchema.statics.load = function(id, cb) {
+    this.findOne({
+        _id: id
+    }).exec(cb);
+};
 
 exports.Cwspace = mongoose.model('Cwspace', CwspaceSchema);

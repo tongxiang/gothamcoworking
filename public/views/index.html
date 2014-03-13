@@ -1,6 +1,6 @@
 <body class="home">
 
-<section data-ng-controller="CwspacesController" data-ng-init="find()" >
+<section data-ng-controller="CwspacesController" data-ng-init="find()">
     <!-- Color Bars (above header)-->
     <div class="color-bar-1"></div>
     <div class="color-bar-2 color-bg"></div>
@@ -12,7 +12,7 @@
         <!-- Logo
         ================================================== -->
         <div class="span5 logo">
-            <a href="index.htm"><img src="img/wonder-logo.png" alt=""></a>
+            <a href="index.htm"><img class="photobox" src="img/croppedMustachioed_Batman.jpg" alt=""></a>
         </div>
         
         <!-- Main Navigation
@@ -95,7 +95,6 @@
                 </select>
                 </div>
                 </form>
-
         </div>
         
       </div><!-- End Header -->
@@ -107,7 +106,7 @@
     <div class="row">
         <div class="span12">
             <h2>Gotham Coworking</h2>
-            <p class="lead">The most comprehensive guide to New York City's coworking spaces. Discover, explore, share, your own place to innovate. Creativity, productivity, innovation, buzzwords</p>
+            <p class="lead">The definitive guide to New York City's coworking spaces. Discover, explore, and share your own locus of creativity.</p>
 
             <!-- Carousel
             ================================================== -->
@@ -169,8 +168,8 @@
                                 <a href="gallery-single.htm" class="item-details-link"></a>
                             </span>
                         </span>
-                        <a href="gallery-single.htm"><img src="/img/interiorshots/{{cwspace.interiorphoto_filename}}" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">{{cwspace.cwspace_name}}</a>{{cwspace.neighborhood}}</span>
+                        <a href="/#!/cwspaces/{{cwspace._id}}"><img src="/img/interiorshots/{{cwspace.interiorphoto_filename}}" alt="Gallery"></a>
+                        <span class="project-details"><a href="/#!/cwspaces/{{cwspace._id}}">{{(cwspace.cwspace_name).substr(0, 17)}}</a>{{cwspace.neighborhood}}</span>
                     </li>
                 </ul>
             </div>

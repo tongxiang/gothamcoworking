@@ -1,0 +1,422 @@
+<body class="home">
+    <section data-ng-controller="CwspacesController" data-ng-init="findOne()">
+        <!-- Color Bars (above header)-->
+        <div class="color-bar-1"></div>
+        <div class="color-bar-2 color-bg"></div>
+        
+        <div class="container">
+        
+          <div class="row header"><!-- Begin Header -->
+          
+            <!-- Logo
+            ================================================== -->
+            <div class="span5 logo">
+                <a href="index.htm"><img src="img/wonder-logo.png" alt=""></a>
+            </div>
+            
+            <!-- Main Navigation
+            ================================================== -->
+            <div class="span7 navigation">
+                <div class="navbar hidden-phone">
+                
+                <ul class="nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="index-1.htm">Home <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.htm">Full Page</a></li>
+                        <li><a href="index-gallery.htm">Gallery Only</a></li>
+                        <li><a href="index-slider.htm">Slider Only</a></li>
+                    </ul>
+                </li>
+               <li><a href="features.htm">Features</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="page-full-width.htm">Pages <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="page-full-width.htm">Full Width</a></li>
+                        <li><a href="page-right-sidebar.htm">Right Sidebar</a></li>
+                        <li><a href="page-left-sidebar.htm">Left Sidebar</a></li>
+                        <li><a href="page-double-sidebar.htm">Double Sidebar</a></li>
+                        <li><a href="page-price-table.htm">Prices Table</a></li>
+                        <li><a href="page-services.htm">Services</a></li>
+                        
+                    </ul>
+                </li>
+                 <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="gallery-4col.htm">Gallery <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="gallery-3col.htm">Gallery 3 Column</a></li>
+                        <li><a href="gallery-4col.htm">Gallery 4 Column</a></li>
+                        <li><a href="gallery-6col.htm">Gallery 6 Column</a></li>
+                        <li><a href="gallery-single.htm">Gallery Single</a></li>
+                    </ul>
+                 </li>
+                 <li class="dropdown active">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="blog-style1.htm">Blog <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="blog-style1.htm">Blog Style 1</a></li>
+                        <li><a href="blog-style2.htm">Blog Style 2</a></li>
+                        <li><a href="blog-single.htm">Blog Single</a></li>
+                    </ul>
+                 </li>
+                 <li><a href="page-contact.htm">Contact</a></li>
+                </ul>
+               
+                </div>
+
+                <!-- Mobile Nav
+                ================================================== -->
+                <form action="#" id="mobile-nav" class="visible-phone">
+                    <div class="mobile-nav-select">
+                    <select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
+                        <option value="">Navigate...</option>
+                        <option value="index.htm">Home</option>
+                            <option value="index.htm">- Full Page</option>
+                            <option value="index-gallery.htm">- Gallery Only</option>
+                            <option value="index-slider.htm">- Slider Only</option>
+                        <option value="features.htm">Features</option>
+                        <option value="page-full-width.htm">Pages</option>
+                            <option value="page-full-width.htm">- Full Width</option>
+                            <option value="page-right-sidebar.htm">- Right Sidebar</option>
+                            <option value="page-left-sidebar.htm">- Left Sidebar</option>
+                            <option value="page-double-sidebar.htm">- Double Sidebar</option>
+                            <option value="page-price-table.htm">- Prices Table</option>
+                            <option value="page-services.htm">- Services</option>
+                        <option value="gallery-4col.htm">Gallery</option>
+                            <option value="gallery-3col.htm">- 3 Column</option>
+                            <option value="gallery-4col.htm">- 4 Column</option>
+                            <option value="gallery-6col.htm">- 6 Column</option>
+                            <option value="gallery-single.htm">- Gallery Single</option>
+                        <option value="blog-style1.htm">Blog</option>
+                            <option value="blog-style1.htm">- Blog Style 1</option>
+                            <option value="blog-style2.htm">- Blog Style 2</option>
+                            <option value="blog-single.htm">- Blog Single</option>
+                        <option value="page-contact.htm">Contact</option>
+                    </select>
+                    </div>
+                    </form>
+
+            </div>
+            
+          </div><!-- End Header -->
+         
+        <!-- Blog Content
+        ================================================== --> 
+        <div class="row"><!--Container row-->
+
+            <!-- Blog Full Post
+            ================================================== --> 
+            <div class="span8 blog">
+
+                <!-- Blog Post 1 -->
+                <article>
+                    <h4 class="title-bg">{{cwspace.cwspace_name}} - {{cwspace.neighborhood}}</h4>
+                    <div class="post-content">
+                        <a href="#"><img src="/img/interiorshots/{{cwspace.interiorphoto_filename}}" alt="Post Thumb"></a>
+
+                        <div class="post-body">
+                            <div class="well">
+                                <div class="panel panel-default">
+                                  <!-- Default panel contents -->
+                                  <div class="panel-heading"><b>{{cwspace.cwspace_name}}</b></div>
+                                  <table class="table">
+
+                                    <tr>
+                                      <td>ADDRESS</td>
+                                      <td>{{cwspace.address}} {{cwspace.floor_suite_or_room}}- {{cwspace.borough}}</td>
+                                    </tr>
+
+                                    <tr>
+                                      <td>SITE</td>
+                                      <td><a href="{{cwspace.websiteurl}}">{{cwspace.websiteurl}}</a></td>
+                                    </tr>
+
+                                    <tr>
+                                      <td>EMAIL</td>
+                                      <td>{{cwspace.email||"no information available"}}</td>
+                                    </tr>
+
+                                    <tr>
+                                      <td>TWITTER</td>
+                                      <td>{{cwspace.twitter||"no information available"}}</td>
+                                    </tr>
+
+                                    <tr>
+                                      <td>PHONE</td>
+                                      <td>{{cwspace.phone||"no information available"}}</td>
+                                    </tr>
+
+                                    <tr>
+                                      <td>MEMBERSHIP / STARTUP FEE</td>
+                                      <td>{{cwspace.membership_startupfees||"no information available"}}</td>
+                                    </tr>
+
+                                    <tr>
+                                      <td>DAILY RATE - ONE PERSON</td>
+                                      <td>{{cwspace.oneperson_dailyrate||"no information available"}}</td>
+                                    </tr>
+
+                                    <tr>
+                                      <td>SHARED DESK - MONTHLY RATE - ONE PERSON</td>
+                                      <td>{{cwspace.one_person_shareddesk_monthlyrate||"no information available"}}</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                      <td>PERSONAL DESK - MONTHLY RATE - ONE PERSON</td>
+                                      <td>{{cwspace.oneperson_dedicateddesk_monthlyrate||"no information available"}}</td>
+                                    </tr>
+
+                                    <tr>
+                                      <td>GROUP TABLE - MONTHLY RATE</td>
+                                      <td>{{cwspace.grouptablecluster_monthlyrate||"no information available"}} for {{cwspace.grouptablecluster_capacity||" group table pricing"}}</td>
+                                    </tr>
+
+                                    <tr>
+                                      <td>PRIVATE OFFICE - MONTHLY RATE</td>
+                                      <td>{{cwspace.office_monthlyrate||"no information available"}} for {{cwspace.office_capacity||"office pricing"}}</td>
+                                    </tr>
+                                  </table>
+                                </div>
+                            </div>
+                           <blockquote>
+                                {{cwspace.description}}<br> <a href="http://www.alleywatch.com/2014/01/the-complete-guide-to-coworking-in-nyc/">-AlleyWatch</a>
+                           </blockquote>
+                        </div>
+                        <div class="post-summary-footer">
+                            <ul class="post-data">
+                                <li><i class="icon-calendar"></i> 02/04/13</li>
+                                <li><i class="icon-user"></i> <a href="#">Admin</a></li>
+                                <li><i class="icon-comment"></i> <a href="#">3 Comments</a></li>
+                                <li><i class="icon-tags"></i> <a href="#">photoshop</a>, <a href="#">design</a>, <a href="#">wordpress</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- About the Author -->
+                <section class="post-content">
+                    <div class="post-body about-author">
+                        <img src="img/author-avatar.jpg"alt="author">
+                        <h4>About Marcel Newman</h4>
+                        Vivamus tincidunt sem eu magna varius elementum. Maecenas felis tellus, fermentum vitae laoreet vitae, volutpat et urna. Nulla faucibus ligula eget ante varius ac euismod odio placerat. Nam sit amet felis non lorem faucibus rhoncus vitae id dui.
+                    </div>
+                </section>
+
+            <!-- Post Comments
+            ================================================== --> 
+                <section class="comments">
+                    <h4 class="title-bg"><a name="comments"></a>3 Comments so far</h4>
+                   <ul>
+                        <li>
+                            <img src="img/user-avatar.jpg" alt="Image" />
+                            <span class="comment-name">William Lawsons</span>
+                            <span class="comment-date">January 11, 2013 | <a href="#">Reply</a></span>
+                            <div class="comment-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis, ligula quis sagittis euismod, odio ante molestie tortor, eget ullamcorper lacus nunc a ligula. Donec est lacus, aliquet in interdum id, rutrum ac tellus. Ut rutrum, justo et lobortis commodo, est metus ornare tortor, vitae luctus turpis leo sed magna. In leo dolor, suscipit non mattis in.</div>
+                            <!-- Reply -->
+                            <ul>
+                                <li>
+                                    <img src="img/user-avatar.jpg" alt="Image" />
+                                    <span class="comment-name">Jack Daniells</span>
+                                    <span class="comment-date">January 11, 2013 | <a href="#">Reply</a></span>
+                                    <div class="comment-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis, ligula quis sagittis euismod, odio ante molestie tortor, eget ullamcorper lacus nunc a ligula. Donec est lacus, aliquet in interdum id, rutrum ac tellus. Ut rutrum, justo et lobortis commodo, est metus ornare tortor, vitae luctus turpis leo sed magna. In leo dolor, suscipit non mattis in.</div>
+                                    </li>
+                                 <li>
+                                    <img src="img/user-avatar.jpg" alt="Image" />
+                                    <span class="comment-name">Jameson</span>
+                                    <span class="comment-date">January 13, 2013 | <a href="#">Reply</a></span>
+                                    <div class="comment-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis, ligula quis sagittis euismod, odio ante molestie tortor, eget ullamcorper lacus nunc a ligula. Donec est lacus, aliquet in interdum id, rutrum ac tellus. Ut rutrum, justo et lobortis commodo, est metus ornare tortor, vitae luctus turpis leo sed magna. In leo dolor, suscipit non mattis in.</div>
+                                    </li>
+                             </ul>
+                        </li>
+                        
+                   </ul>
+                
+                    <!-- Comment Form -->
+                    <div class="comment-form-container">
+                        <h6>Leave a Comment</h6>
+                        <form action="#" id="comment-form">
+                            <div class="input-prepend">
+                                <span class="add-on"><i class="icon-user"></i></span>
+                                <input class="span4" id="prependedInput" size="16" type="text" placeholder="Name">
+                            </div>
+                            <div class="input-prepend">
+                                <span class="add-on"><i class="icon-envelope"></i></span>
+                                <input class="span4" id="prependedInput" size="16" type="text" placeholder="Email Address">
+                            </div>
+                            <div class="input-prepend">
+                                <span class="add-on"><i class="icon-globe"></i></span>
+                                <input class="span4" id="prependedInput" size="16" type="text" placeholder="Website URL">
+                            </div>
+                            <textarea class="span6"></textarea>
+                            <div class="row">
+                                <div class="span2">
+                                    <input type="submit" class="btn btn-inverse" value="Submit Comment">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            </section><!-- Close comments section-->
+
+            </div><!--Close container row-->
+
+            <!-- Blog Sidebar
+            ================================================== --> 
+            <div class="span4 sidebar">
+
+                <!--Search-->
+                <section>
+                    <div class="input-append">
+                        <form action="#">
+                            <input id="appendedInputButton" size="16" type="text" placeholder="Search"><button class="btn" type="button"><i class="icon-search"></i></button>
+                        </form>
+                    </div>
+                </section>
+
+                <!--Categories-->
+                <h6 class="title-bg">Categories</h6>
+                <ul class="post-category-list">
+                    <li><a href="#"><i class="icon-plus-sign"></i>Design</a></li>
+                    <li><a href="#"><i class="icon-plus-sign"></i>Photoshop</a></li>
+                    <li><a href="#"><i class="icon-plus-sign"></i>HTML</a></li>
+                    <li><a href="#"><i class="icon-plus-sign"></i>Wordpress</a></li>
+                </ul>
+                <br>
+                <br>
+
+                <!--Popular Posts-->
+                <h6 class="title-bg">Latest Posts</h6>
+                <ul class="popular-posts">
+                    <li>
+                        <a href="#"><img src="img/gallery/gallery-img-6-thumb.jpg" alt="Popular Post"></a>
+                        <h6><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></h6>
+                        <em>Posted on 02/21/13</em>
+                    </li>
+                    <li>
+                        <a href="#"><img src="img/gallery/gallery-img-7-thumb.jpg" alt="Popular Post"></a>
+                        <h6><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></h6>
+                        <em>Posted on 03/01/13</em>
+                    <li>
+                        <a href="#"><img src="img/gallery/gallery-img-8-thumb.jpg" alt="Popular Post"></a>
+                        <h6><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></h6>
+                        <em>Posted on 05/16/13</em>
+                    </li>
+                </ul>
+
+                <!--Tabbed Content-->
+                <h6 class="title-bg">More Info</h6>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#comments" data-toggle="tab">Comments</a></li>
+                    <li><a href="#tweets" data-toggle="tab">Tweets</a></li>
+                    <li><a href="#about" data-toggle="tab">About</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="comments">
+                         <ul>
+                            <li><i class="icon-comment"></i>admin on <a href="#">Project 1</a></li>
+                            <li><i class="icon-comment"></i>admin on <a href="#">Project 2</a></li>
+                            <li><i class="icon-comment"></i>admin on <a href="#">Project 3</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="tweets">
+                        <ul>
+                            <li><a href="#"><i class="icon-comment"></i>@Basicoh_</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                            <li><a href="#"><i class="icon-comment"></i>@Basicoh_</a> In interdum felis fermentum ipsum molestie sed porttitor ligula rutrum. Morbi blandit ultricies ultrices. </li>
+                            <li><a href="#"><i class="icon-comment"></i>@Basicoh_</a> Vivamus nec lectus sed orci molestie molestie.</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="about">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In interdum felis fermentum ipsum molestie sed porttitor ligula rutrum. Morbi blandit ultricies ultrices. Vivamus nec lectus sed orci molestie molestie.</p>
+                    </div>
+                </div>
+
+                <!--Video Widget-->
+                <h5 class="title-bg">Video Widget</h5>
+                <iframe src="http://player.vimeo.com/video/44049449" width="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+            </div>
+
+        </div>
+        
+        </div> <!-- End Container -->
+
+        <!-- Footer Area
+            ================================================== -->
+        <div class="footer-container"><!-- Begin Footer -->
+            <div class="container">
+                <div class="row footer-row">
+                    <div class="span3 footer-col">
+                        <h5>Contact Us</h5>
+                       <img src="img/wonder-footer-logo.png" alt="Wonder" ><br><br>
+                        <address>
+                            <strong>Wonder Bunker</strong><br>
+                            6064 Amazing St, <br>
+                            Madrid, Spain.<br>
+                        </address>
+                        <ul class="social-icons">
+                            <li><a href="#" class="social-icon facebook"></a></li>
+                            <li><a href="#" class="social-icon twitter"></a></li>
+                            <li><a href="#" class="social-icon dribble"></a></li>
+                            <li><a href="#" class="social-icon rss"></a></li>
+                            <li><a href="#" class="social-icon forrst"></a></li>
+                        </ul>
+                    </div>
+                    <div class="span3 footer-col">
+                        <h5>Latest Tweets</h5>
+                        <ul>
+                            <li><a href="#">@Basicoh_</a> Hey! Buy this beautiful theme right now!.</li>
+                            <li><a href="#">@Basicoh_</a> Wonder Theme is out Now!. You can buy it in Wrapbootstrap.com. Really easy to configure with a wonderful design.</li>
+                            <li><a href="#">@Basicoh_</a> If you are an agency, freelancer or a studio, this theme is made for you. Take a look and enjoy it.</li>
+                        </ul>
+                    </div>
+                    <div class="span3 footer-col">
+                        <h5>Latest Posts</h5>
+                         <ul class="post-list">
+                            <li><a href="#">Example post number 1</a></li>
+                            <li><a href="#">Another example post title</a></li>
+                            <li><a href="#">This is the third post title here</a></li>
+                            <li><a href="#">Yet another post title for this list</a></li>
+                            <li><a href="#">No more posts, this is the last one</a></li>
+                        </ul>
+                    </div>
+                    <div class="span3 footer-col">
+                        <h5>Flickr Photos</h5>
+                        <ul class="img-feed">
+                            <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
+                            <li><a href="#"><img src="img/gallery/flickr-img-2.jpg" alt="Image Feed"></a></li>
+                            <li><a href="#"><img src="img/gallery/flickr-img-3.jpg" alt="Image Feed"></a></li>
+                            <li><a href="#"><img src="img/gallery/flickr-img-4.jpg" alt="Image Feed"></a></li>
+                            <li><a href="#"><img src="img/gallery/flickr-img-5.jpg" alt="Image Feed"></a></li>
+                            <li><a href="#"><img src="img/gallery/flickr-img-6.jpg" alt="Image Feed"></a></li>
+                            <li><a href="#"><img src="img/gallery/flickr-img-7.jpg" alt="Image Feed"></a></li>
+                            <li><a href="#"><img src="img/gallery/flickr-img-8.jpg" alt="Image Feed"></a></li>
+                            <li><a href="#"><img src="img/gallery/flickr-img-9.jpg" alt="Image Feed"></a></li>
+                            <li><a href="#"><img src="img/gallery/flickr-img-10.jpg" alt="Image Feed"></a></li>
+                            <li><a href="#"><img src="img/gallery/flickr-img-11.jpg" alt="Image Feed"></a></li>
+                            <li><a href="#"><img src="img/gallery/flickr-img-12.jpg" alt="Image Feed"></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row"><!-- Begin Sub Footer -->
+                    <div class="span12 footer-col footer-sub">
+                        <div class="row no-margin">
+                            <div class="span6"><span class="left">Copyright 2012 Wonder Theme. All rights reserved.</span></div>
+                            <div class="span6">
+                                <span class="right">
+                                <a href="#">Home</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Gallery</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Blog</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Contact</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End Sub Footer -->
+
+            </div>
+        </div><!-- End Footer --> 
+        
+        <!-- Scroll to Top -->  
+        <div id="toTop" class="hidden-phone hidden-tablet">Back to Top</div>
+        
+    
+
+
+    </section>
+</body>

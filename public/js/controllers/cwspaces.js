@@ -45,9 +45,7 @@ angular.module('gothamcoworking.cwspaces').controller('CwspacesController', ['$s
     };
 
     $scope.find = function() {
-        console.log("cwspaces controller running find() function right now")
         $scope.cwspaces = Cwspaces.query(function() {
-            console.log("inside the query function right now")
             // $scope.cwspaces = cwspaces;
             // console.log(cwspaces)
         });
@@ -56,8 +54,18 @@ angular.module('gothamcoworking.cwspaces').controller('CwspacesController', ['$s
     $scope.findOne = function() {
         Cwspaces.get({
             cwspaceId: $stateParams.cwspaceId
-        }, function(cwspace) {
-            $scope.cwspace = cwspace;
+        }, function(returnedCwspace) {
+            $scope.cwspace = returnedCwspace;
         });
     };
+
+    //  $scope.findOne = function() {
+    //     $scope.cwspaces = Cwspaces.get({cwspaceId: $stateParams.cwspaceId})
+
+    //         function({cwspaceId: $stateParams.cwspaceId}){
+    //     });
+    // };
+
+
+
 }]);

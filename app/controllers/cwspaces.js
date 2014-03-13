@@ -20,9 +20,23 @@ exports.cwspace = function(req, res, next, id) {
     });
 };
 
+// /**
+//  * Show an cwspace
+//  */
+exports.show = function(req, res) {
+    res.jsonp(req.cwspace);
+};
+
 /**
  * List of cwspaces
  */
+exports.all = function(req, res){
+    Cwspace.find({}, function(err, cwspaces){
+        res.jsonp(cwspaces);
+    });
+};
+
+// Alternatively: 
 // exports.all = function(req, res) {
 //     Cwspace.find().sort('-cwspace_name').exec(function(err, cwspaces) {
 //         if (err) {
@@ -35,13 +49,8 @@ exports.cwspace = function(req, res, next, id) {
 //     });
 // };
 
-// Alternatively: 
-exports.all = function(req, res){
-    Cwspace.find({}, function(err, cwspaces){
-        console.log(cwspaces);
-        res.jsonp(cwspaces);
-    });
-};
+
+
 
 // /**
 //  * Create an cwspace
@@ -96,11 +105,5 @@ exports.all = function(req, res){
 //     });
 // };
 
-// /**
-//  * Show an cwspace
-//  */
-exports.show = function(req, res) {
-    res.jsonp(req.cwspace);
-};
 
 
