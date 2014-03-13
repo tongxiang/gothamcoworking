@@ -1,4 +1,4 @@
-<body class="home">
+<div class="home">
 
 <section data-ng-controller="CwspacesController" data-ng-init="find()">
     <!-- Color Bars (above header)-->
@@ -168,8 +168,8 @@
                                 <a href="gallery-single.htm" class="item-details-link"></a>
                             </span>
                         </span>
-                        <a href="/#!/cwspaces/{{cwspace._id}}"><img src="/img/interiorshots/{{cwspace.interiorphoto_filename}}" alt="Gallery"></a>
-                        <span class="project-details"><a href="/#!/cwspaces/{{cwspace._id}}">{{(cwspace.cwspace_name).substr(0, 17)}}</a>{{cwspace.neighborhood}}</span>
+                        <a ui-sref="cwspace_by_id({cwspaceId: cwspace._id})"><img ng-src="/img/interiorshots/{{cwspace.interiorphoto_filename}}" alt="Gallery"></a>
+                        <span class="project-details"><a href="/#/cwspaces/{{cwspace._id}}">{{(cwspace.cwspace_name).substr(0, 17)}}</a>{{cwspace.neighborhood}}</span>
                     </li>
                 </ul>
             </div>
@@ -271,4 +271,4 @@
     <div id="toTop" class="hidden-phone hidden-tablet">Back to Top</div>
     
 </section>
-</body>
+</div>

@@ -7,7 +7,7 @@ angular.module('gothamcoworking').config(['$stateProvider', '$urlRouterProvider'
     $urlRouterProvider.otherwise('/');
     // states for my app
     $stateProvider
-      .state('cwspace by id', {
+      .state('cwspace_by_id', {
         url: '/cwspaces/:cwspaceId',
         templateUrl: 'views/cwspaces/view.html'
     })
@@ -21,11 +21,11 @@ angular.module('gothamcoworking').config(['$stateProvider', '$urlRouterProvider'
 //check out StateProvider documentation 
 
 //Setting HTML5 Location Mode
-angular.module('gothamcoworking').config(['$locationProvider',
-  function($locationProvider) {
-    $locationProvider.hashPrefix('!');
-  }
-]);
+// angular.module('gothamcoworking').config(['$locationProvider',
+//   function($locationProvider) {
+//     $locationProvider.hashPrefix('!');
+//   }
+// ]);
 
     //   .state('all cwspaces', {
     //     url: '/cwspaces',

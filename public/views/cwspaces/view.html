@@ -1,6 +1,19 @@
-<body class="home">
+<div class="home">
     <section data-ng-controller="CwspacesController" data-ng-init="findOne()">
         <!-- Color Bars (above header)-->
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script>
+        // function initialize(){
+        //     var map_canvas = document.getElementById('map_canvas');
+        //     var mapOptions = {
+        //         center: new google.maps.LatLng(40.714623,-74.006605), 
+        //         zoom: 8, 
+        //         mapTypeId: google.maps.MapTypeId.HYBRID //other options ROADMAP, SATELLITE, or TERRAIN
+        //     }
+        //     var map = new google.maps.Map(map_canvas, map_options;);
+        // }
+        // google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
         <div class="color-bar-1"></div>
         <div class="color-bar-2 color-bg"></div>
         
@@ -11,7 +24,7 @@
             <!-- Logo
             ================================================== -->
             <div class="span5 logo">
-                <a href="index.htm"><img src="img/wonder-logo.png" alt=""></a>
+                <a href="/"><img src="img/wonder-logo.png" alt=""></a>
             </div>
             
             <!-- Main Navigation
@@ -111,13 +124,12 @@
                 <article>
                     <h4 class="title-bg">{{cwspace.cwspace_name}} - {{cwspace.neighborhood}}</h4>
                     <div class="post-content">
-                        <a href="#"><img src="/img/interiorshots/{{cwspace.interiorphoto_filename}}" alt="Post Thumb"></a>
-
+                        <div id="map_canvas"></div>
                         <div class="post-body">
                             <div class="well">
                                 <div class="panel panel-default">
                                   <!-- Default panel contents -->
-                                  <div class="panel-heading"><b>{{cwspace.cwspace_name}}</b></div>
+                                  <div class="panel-heading"><b><h5>{{cwspace.cwspace_name}}</b></h5></div>
                                   <table class="table">
 
                                     <tr>
@@ -272,13 +284,10 @@
                 </section>
 
                 <!--Categories-->
-                <h6 class="title-bg">Categories</h6>
-                <ul class="post-category-list">
-                    <li><a href="#"><i class="icon-plus-sign"></i>Design</a></li>
-                    <li><a href="#"><i class="icon-plus-sign"></i>Photoshop</a></li>
-                    <li><a href="#"><i class="icon-plus-sign"></i>HTML</a></li>
-                    <li><a href="#"><i class="icon-plus-sign"></i>Wordpress</a></li>
-                </ul>
+                <h6 class="title-bg">THE WORKSPACE</h6>
+                <div>
+                    
+                </div>
                 <br>
                 <br>
 
@@ -419,4 +428,4 @@
 
 
     </section>
-</body>
+</div>
