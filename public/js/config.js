@@ -10,7 +10,7 @@ angular.module('gothamcoworking').config(['$stateProvider', '$urlRouterProvider'
       .state('cwspace_by_id', {
         url: '/cwspaces/:cwspaceId',
         templateUrl: 'views/cwspaces/view.html'
-    })
+      })
       .state('home', {
         url: '/',
         templateUrl: 'views/index.html'
