@@ -31,7 +31,4 @@ footer p {
     margin-right: auto;
 }
 
-#map_canvas {
-    width: 770px;
-    height: 300px;
-}
+.angular-google-map-container {width: 770; height: 400px}
