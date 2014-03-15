@@ -1,0 +1,148 @@
+var cheerio = require('cheerio'),
+    request = require('request'),
+    Q = require('q'),
+    path = require('path'),
+    fs = require('fs'),
+    async = require('async');
+ 
+var host = "http://www.viator.com/";
+//www.viator.com/New-York-City/d687-ttd
+var current_page =  process.argv[2] || "New-York-City/d687-ttd";
+ 
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
+ 
+//Connect to datase used with APP;
+mongoose.connect('mongodb://localhost/tripsmart-dev');
+//Schema design
+var ActivitySchema = new Schema({
+  title: String,
+  price: Number, //=> SubSchema for kids,adults
+  duration: Number, //=> save in minutes?
+  city: String,
+  img_url:String,
+  coordinates:[Number],
+  description: String
+  //openhours: [Number] => military times? [8.5 ,17] 8:30am to 5:00pm(30 min intervals)
+  //tags: [String] =>
+  //availability: subSchema
+});
+ 
+var Activity = mongoose.model('Activity', ActivitySchema);
+ 
+var makeUrl = function(url){
+  return host+url;
+};
+ 
+//Makes an integer between min and max
+var makeRand = function(min, max) {
+  var result = Math.floor(Math.random() * (max - min + 1)) + min;
+  return result
+}
+ 
+// Gets the url and name for each category in the City's Page
+function getCategories(url){
+  var baseUrl = makeUrl(url);
+  var deferred = Q.defer(); //CREATES THE PROMISE-STORING OBJECT
+  console.log('crawling: ', baseUrl);
+  //Crawl the main page of the city
+  request({uri: baseUrl}, function(err, response, body) { //MAKES ASYNCHRONOUS REQUEST TO ANOTHER SERVER 
+      //Report Error if any
+      if(err && response.statusCode !== 200){
+          console.log('Request error, res status is: ', response.statusCode);
+          deferred.reject(new Error(err));
+      }
+      $ = cheerio.load(body);
+ 
+ 
+      JSON;
+ 
+      deferred.resolve(JSON) //REQUEST IS RESOLVED, EXAMPLE 
+
+      var categories = [];
+      //Sidebar has the links for each Category page
+      $('.sidebar-list').first().find('li').each(function(index , element){
+        var category = {};
+        category['name'] = $(this).find('a').text();
+        category['url'] = $(this).find('a').attr('href');
+        categories.push(category);
+      });
+ 
+      //Remove first and last links, they are not categories!
+      categories = categories.slice(1,-1);
+      deferred.resolve(categories); //ONCE REQUEST RETURNS< IT IS RESOLVED 
+  });
+  return deferred.promise; //RETURNS THE PROMISE, BEFORE THE REQUEST HAS RETURNED WITH INFORMATION 
+}
+// Gets the urls of each product in a category page
+function getProductLinks(category, done){
+  var baseUrl = makeUrl(category.url);
+  console.log("product links on: ", baseUrl);
+  request({uri: baseUrl}, function(err, response, body) {
+      //Report Error if any
+      if(err && response.statusCode !== 200){
+        console.log('Request error, res status is: ', response.statusCode);
+      }
+ 
+      $ = cheerio.load(body);
+      var links = [];
+      $('#productList .product-title').find('a').each(function(index , element){
+        var link = $(this).attr('href');
+        links.push(link);
+      });
+      done(null, links);
+  });
+}
+// Gets the product information and makes an object from the information collected
+// saves to the database
+function getProductInfo(url, done){
+  var baseUrl = makeUrl(url);
+  console.log("working on: ", baseUrl);
+  request({uri: baseUrl}, function(err, response, body) {
+      //Report Error if any
+      if(err && response.statusCode !== 200){
+        console.log('Request error, res status is: ', response.statusCode);
+      }
+ 
+      $ = cheerio.load(body);
+      var tour = {};
+      tour['title'] = $('.product-title-l span').text();
+      tour['city'] = 'new york';
+      tour['description'] = $('.cms-content').first().text();
+      tour['price'] = (makeRand(20,200)/2).toFixed(2);
+      tour['duration'] = makeRand(30,600);
+      tour['coordinates'] = [0, 0]; //TODO Edit
+      var img_url = $('.img-border').attr('src');
+      var img_name = path.basename(img_url);
+ 
+      //TODO Change to AMAZON when deploying
+      request(img_url).pipe(fs.createWriteStream('./public/img/product/'+img_name));
+      tour['img_url'] = './img/product/'+img_name;
+ 
+      var count_errors = 0;
+      Activity.create(tour,function(err){
+        if(err){
+          count_errors++;
+          console.log(err);
+        }
+      });
+      console.log('DB errors so far: ', count_errors);
+      // console.log(tour);
+      done(null, tour);
+  });
+}
+ 
+getCategories(current_page).then(function(categories){
+  console.log('There are '+categories.length+ ' categories');
+ 
+  //categories is an array of objects with url, and name
+  async.mapSeries(categories, getProductLinks, function(err,links){
+    //links is an array of urls
+    var all_tours = [];
+    all_tours = all_tours.concat.apply(all_tours,links);
+    console.log("There is a total of: "+all_tours.length+" links");
+    async.eachSeries(all_tours, getProductInfo, function(err){
+      console.log('Finished saving to DB. Press Ctrl+C to exit');
+    });
+  });
+}).done();
