@@ -10,7 +10,7 @@
             <!-- Logo
             ================================================== -->
             <div class="span5 logo">
-                <a href="/"><img src="img/wonder-logo.png" alt=""></a>
+                <a href="/"><img class="photobox" src="img/boldGothamnonboldCoworking.png" alt=""></a>
             </div>
             
             <!-- Main Navigation
@@ -110,7 +110,11 @@
                 <article>
                     <h4 class="title-bg">{{cwspace.cwspace_name}} - {{cwspace.neighborhood}}</h4>
                     <div class="post-content">
-                        <google-map center="map.center" zoom="map.zoom"></google-map>
+                        <div>{{cwspace.latlng}}</div>
+                        <div>"{latitude: {{cwspace.latlng.latitude}}, longitude: {{cwspace.latlng.longitude}}}"</div>
+                        <google-map center="map.center" zoom="map.zoom" draggable="true">
+                            <marker coords="cwspace.latlng"></marker>
+                        </google-map>
                         <div class="post-body">
                             <div class="well">
                                 <div class="panel panel-default">

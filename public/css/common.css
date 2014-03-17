@@ -25,10 +25,15 @@ footer p {
 }
 
 .photobox {
-    width: 25%;
-    height: 25%;
+    width: 475px;
+    height: 150px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .angular-google-map-container {width: 770; height: 400px}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}

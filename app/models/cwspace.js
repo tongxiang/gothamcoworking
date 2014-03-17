@@ -13,7 +13,7 @@ var CwspaceSchema = new Schema({
     borough: String,
     neighborhood: String,
     address: String,
-    latlng: [Number, Number],
+    latlng: {latitude: Number, longitude: Number},
     floor_suite_or_room: String,
     pricing: String,
     membership_startupfees: String,

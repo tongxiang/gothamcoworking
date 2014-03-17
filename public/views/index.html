@@ -12,12 +12,11 @@
         <!-- Logo
         ================================================== -->
         <div class="span5 logo">
-            <a href="index.htm"><img class="photobox" src="img/croppedMustachioed_Batman.jpg" alt=""></a>
+            <a href="index.htm"><img class="photobox" src="img/boldGothamnonboldCoworking.png" alt=""></a>
         </div>
-        
         <!-- Main Navigation
         ================================================== -->
-        <div class="span7 navigation">
+        <div class="span7 navigation btn-group">
             <div class="navbar hidden-phone">
             
             <ul class="nav">
@@ -29,6 +28,7 @@
                     <li><a href="index-slider.htm">Slider Only</a></li>
                 </ul>
             </li>
+
            <li><a href="features.htm">Features</a></li>
             <li class="dropdown active">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="page-full-width.htm">Pages <b class="caret"></b></a>
@@ -39,7 +39,6 @@
                     <li><a href="page-double-sidebar.htm">Double Sidebar</a></li>
                     <li><a href="page-price-table.htm">Prices Table</a></li>
                     <li><a href="page-services.htm">Services</a></li>
-                    
                 </ul>
             </li>
              <li class="dropdown">
@@ -105,61 +104,44 @@
     <!-- Title Header -->
     <div class="row">
         <div class="span12">
-            <h2>Gotham Coworking</h2>
-            <p class="lead">The definitive guide to New York City's coworking spaces. Discover, explore, and share your own locus of creativity.</p>
+            <h2>The definitive guide to New York City's coworking spaces.</h2>
+            <p class="lead">Discover, explore, and share your own locus of creativity.</p>
+        </div>
+
+        <div class="span 12">
+            <section class="col-centered">
+                <div class="input-append">
+                    <form action="#">
+                        <input id="appendedInputButton" size="16" type="text" placeholder='Name, Borough, Address'><div class="btn-group">
+                          <button type="button" class="btn btn-default">Search</button>
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                            <span class="sr-only">Filter By</span>
+                          </button>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Address</a></li>
+                            <li><a href="#">Name</a></li>
+                          </ul>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+        <div class="span12">
             <google-map 
                 center="map.center" 
                 zoom="map.zoom"
                 draggable="true">
-
-            <marker coords='{
-            latitude: 40.7500, 
-            longitude: -73.940
-            }'>
+            <marker data-ng-repeat="cwspace in cwspaces" coords="cwspace.latlng">
             </marker>
 
-
-            </google-map>
-
-                       
-
-            <!-- Carousel
-            ================================================== -->
-<!--             <div class="row">
-                <div class="span12">
-                    <div class="flexslider">
-                      <ul class="slides">
-                        <li><a href="gallery-single.htm"><img src="img/gallery/slider1.jpg" alt="slider"></a></li>
-                        <li><a href="gallery-single.htm"><img src="img/gallery/slider2.jpg" alt="slider"></a></li>
-                        <li><a href="gallery-single.htm"><img src="img/gallery/gothamcoworkingwhiteboard.jpg" alt="slider"></a></li>
-                      </ul>
-                    </div>
-                </div>
-            </div> -->
-
-            <script>
-            //  $(window).load(function(){
-            //     console.log("window is loading");
-            //     // debugger;
-            //     console.log(".flexslider array length",$('.flexslider').length);
-
-            //     $('.flexslider').flexslider({
-            //         animation: "slide",
-            //         slideshow: true,
-            //         start: function(slider){
-            //           console.log("flexsider is running");
-            //           $('body').removeClass('loading');
-            //         }
-            //     });  
-            // });
-            </script>
-
-            
+            </google-map>  
         </div>  
     </div>
     
     <div class="row">
             <h4 class="title-bg">Coworking Spaces</h4>
+
         <!-- Gallery Items
         ================================================== --> 
         <div class="span12 gallery">

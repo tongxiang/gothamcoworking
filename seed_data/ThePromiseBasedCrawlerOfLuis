@@ -39,7 +39,7 @@ var makeRand = function(min, max) {
   var result = Math.floor(Math.random() * (max - min + 1)) + min;
   return result
 }
- 
+
 // Gets the url and name for each category in the City's Page
 function getCategories(url){
   var baseUrl = makeUrl(url);
@@ -52,12 +52,10 @@ function getCategories(url){
           console.log('Request error, res status is: ', response.statusCode);
           deferred.reject(new Error(err));
       }
-      $ = cheerio.load(body);
- 
+      $ = cheerio.load(body); 
  
       JSON;
- 
-      deferred.resolve(JSON) //REQUEST IS RESOLVED, EXAMPLE 
+      deferred.resolve(JSON) //REQUEST IS RESOLVED, EXAMPLE
 
       var categories = [];
       //Sidebar has the links for each Category page
