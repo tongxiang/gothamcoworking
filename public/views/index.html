@@ -110,12 +110,14 @@
 
 <!--         <a ui-sref="cwspace_by_id({cwspaceId: cwspace._id})">
  -->
+{{query}}
+
         <div class="span 12">
             <section class="col-centered">
                 <div class="input-append">
                     <form action="#">
                         <input ng-model="query" id="appendedInputButton" size="16" type="text" placeholder='Name, Borough, Address'><div class="btn-group">
-                          <button ui-sref="search" type="button" class="btn btn-default">Search</button>
+                          <button data-ng-click= "redirectFunction(query)" type="button" class="btn btn-default">Search</button>
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             <span class="caret"></span>
                             <span class="sr-only">Filter By</span>
@@ -135,7 +137,7 @@
                 center="map.center" 
                 zoom="map.zoom"
                 draggable="true">
-            <marker data-ng-repeat="cwspace in cwspaces" coords="cwspace.latlng">
+            <marker data-ng-repeat="cwspace in cwspaces | filter: query" coords="cwspace.latlng">
             </marker>
 
             </google-map>  

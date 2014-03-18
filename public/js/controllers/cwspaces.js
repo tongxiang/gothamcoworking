@@ -3,6 +3,8 @@
 angular.module('gothamcoworking.cwspaces').controller('CwspacesController', ['$scope', '$stateParams', '$location', 'Global', 'Cwspaces', function ($scope, $stateParams, $location, Global, Cwspaces) {
     $scope.global = Global;
 
+    $scope.query = "";
+
     $scope.map = {
         center: {
             latitude: 40.7500, 
@@ -11,6 +13,11 @@ angular.module('gothamcoworking.cwspaces').controller('CwspacesController', ['$s
         zoom: 11
     };
     
+
+    $scope.redirectFunction = function(query){
+        $location.path('/search/'+query);
+    }
+
     $scope.create = function() {
         var cwspace = new Cwspaces({
             title: this.title,
@@ -54,18 +61,20 @@ angular.module('gothamcoworking.cwspaces').controller('CwspacesController', ['$s
 
     $scope.find = function() {
         $scope.cwspaces = Cwspaces.query(function() {
+            $scope.query = $stateParams.searchParams;
+            console.log($scope.query);
             // $scope.cwspaces = cwspaces;
             // console.log(cwspaces)
         });
     };
 
-    // $scope.findOne = function() {
-    //     Cwspaces.get({
-    //         cwspaceId: $stateParams.cwspaceId
-    //     }, function(returnedCwspace) {
-    //         $scope.cwspace = returnedCwspace;
-    //     });
-    // };
+    $scope.findOne = function() {
+        Cwspaces.get({
+            cwspaceId: $stateParams.cwspaceId
+        }, function(returnedCwspace) {
+            $scope.cwspace = returnedCwspace;
+        });
+    };
 
     $scope.findOne = function() {
         $scope.cws = {};
@@ -74,6 +83,7 @@ angular.module('gothamcoworking.cwspaces').controller('CwspacesController', ['$s
             cwspaceId: $stateParams.cwspaceId
         }, function() {
             $scope.cws.latlng = $scope.cwspace.latlng;
+
         });
     };
 

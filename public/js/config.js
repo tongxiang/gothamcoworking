@@ -16,7 +16,7 @@ angular.module('gothamcoworking').config(['$stateProvider', '$urlRouterProvider'
         templateUrl: 'views/index.html'
         })
       .state('search', {
-        url: '/search', //eventually make this /search/:searchParams
+        url: '/search/:searchParams', //eventually make this /search/:searchParams
         templateUrl: 'views/search.html'
         })
   }

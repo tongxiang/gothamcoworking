@@ -96,11 +96,12 @@
         </div>
         
       </div><!-- End Header -->
-     
+{{query}}
         <div class="span 12">
             <section class="col-centered">
                 <div class="input-append">
                     <form action="#">
+                        {{query}}
                         <input ng-model="query" id="appendedInputButton" size="16" type="text" placeholder='Ex. "Brooklyn"'><div class="btn-group">
                           <button ui-sref="search" type="button" class="btn btn-default">Search</button>
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
