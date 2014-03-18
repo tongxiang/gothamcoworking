@@ -110,8 +110,6 @@
                 <article>
                     <h4 class="title-bg">{{cwspace.cwspace_name}} - {{cwspace.neighborhood}}</h4>
                     <div class="post-content">
-                        <div>{{cwspace.latlng}}</div>
-                        <div>"{latitude: {{cwspace.latlng.latitude}}, longitude: {{cwspace.latlng.longitude}}}"</div>
                         <google-map center="map.center" zoom="map.zoom" draggable="true">
                             <marker coords="cws.latlng"></marker>
                         </google-map>
@@ -194,15 +192,6 @@
                     </div>
                 </article>
 
-                <!-- About the Author -->
-                <section class="post-content">
-                    <div class="post-body about-author">
-                        <img src="img/author-avatar.jpg"alt="author">
-                        <h4>About Marcel Newman</h4>
-                        Vivamus tincidunt sem eu magna varius elementum. Maecenas felis tellus, fermentum vitae laoreet vitae, volutpat et urna. Nulla faucibus ligula eget ante varius ac euismod odio placerat. Nam sit amet felis non lorem faucibus rhoncus vitae id dui.
-                    </div>
-                </section>
-
             <!-- Post Comments
             ================================================== --> 
                 <section class="comments">
@@ -264,15 +253,6 @@
             ================================================== --> 
             <div class="span4 sidebar">
 
-                <!--Search-->
-                <section>
-                    <div class="input-append">
-                        <form action="#">
-                            <input id="appendedInputButton" size="16" type="text" placeholder="Search"><button class="btn" type="button"><i class="icon-search"></i></button>
-                        </form>
-                    </div>
-                </section>
-
                 <!--Categories-->
                 <h6 class="title-bg">THE WORKSPACE</h6>
                 <div>
@@ -282,55 +262,16 @@
                 <br>
 
                 <!--Popular Posts-->
-                <h6 class="title-bg">Latest Posts</h6>
+                <h6 class="title-bg">THE BRAND</h6>
                 <ul class="popular-posts">
                     <li>
-                        <a href="#"><img src="img/gallery/gallery-img-6-thumb.jpg" alt="Popular Post"></a>
-                        <h6><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></h6>
-                        <em>Posted on 02/21/13</em>
+                        <img ng-src="/img/logos/{{cwspace.logo_filename}}">
                     </li>
-                    <li>
-                        <a href="#"><img src="img/gallery/gallery-img-7-thumb.jpg" alt="Popular Post"></a>
-                        <h6><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></h6>
-                        <em>Posted on 03/01/13</em>
-                    <li>
-                        <a href="#"><img src="img/gallery/gallery-img-8-thumb.jpg" alt="Popular Post"></a>
-                        <h6><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></h6>
-                        <em>Posted on 05/16/13</em>
-                    </li>
+                    <br>
                 </ul>
 
-                <!--Tabbed Content-->
-                <h6 class="title-bg">More Info</h6>
-                <ul class="nav nav-tabs">
-                    <li class="active"><a href="#comments" data-toggle="tab">Comments</a></li>
-                    <li><a href="#tweets" data-toggle="tab">Tweets</a></li>
-                    <li><a href="#about" data-toggle="tab">About</a></li>
-                </ul>
-
-                <div class="tab-content">
-                    <div class="tab-pane active" id="comments">
-                         <ul>
-                            <li><i class="icon-comment"></i>admin on <a href="#">Project 1</a></li>
-                            <li><i class="icon-comment"></i>admin on <a href="#">Project 2</a></li>
-                            <li><i class="icon-comment"></i>admin on <a href="#">Project 3</a></li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane" id="tweets">
-                        <ul>
-                            <li><a href="#"><i class="icon-comment"></i>@Basicoh_</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                            <li><a href="#"><i class="icon-comment"></i>@Basicoh_</a> In interdum felis fermentum ipsum molestie sed porttitor ligula rutrum. Morbi blandit ultricies ultrices. </li>
-                            <li><a href="#"><i class="icon-comment"></i>@Basicoh_</a> Vivamus nec lectus sed orci molestie molestie.</li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane" id="about">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In interdum felis fermentum ipsum molestie sed porttitor ligula rutrum. Morbi blandit ultricies ultrices. Vivamus nec lectus sed orci molestie molestie.</p>
-                    </div>
                 </div>
-
-                <!--Video Widget-->
-                <h5 class="title-bg">Video Widget</h5>
-                <iframe src="http://player.vimeo.com/video/44049449" width="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                
             </div>
 
         </div>

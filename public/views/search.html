@@ -1,6 +1,5 @@
 <div class="home" data-ng-controller="CwspacesController" data-ng-init="find()">
-    <!-- Color Bars (above header)-->
-    <div class="color-bar-1"></div>
+<div class="color-bar-1"></div>
     <div class="color-bar-2 color-bg"></div>
     
     <div class="container">
@@ -9,9 +8,9 @@
       
         <!-- Logo
         ================================================== -->
-        <div class="span5 logo">
-            <a href="/"><img class="photobox" src="img/boldGothamnonboldCoworking.png" alt=""></a>
-        </div>
+            <div class="span5 logo">
+                <a href="/"><img class="photobox" src="img/boldGothamnonboldCoworking.png" alt=""></a>
+            </div>
         
         <!-- Main Navigation
         ================================================== -->
@@ -40,7 +39,7 @@
                     
                 </ul>
             </li>
-             <li class="dropdown active">
+             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="gallery-4col.htm">Gallery <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="gallery-3col.htm">Gallery 3 Column</a></li>
@@ -49,7 +48,7 @@
                     <li><a href="gallery-single.htm">Gallery Single</a></li>
                 </ul>
              </li>
-             <li class="dropdown">
+             <li class="dropdown active">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="blog-style1.htm">Blog <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="blog-style1.htm">Blog Style 1</a></li>
@@ -98,15 +97,11 @@
         
       </div><!-- End Header -->
      
-    <!-- Page Content
-    ================================================== --> 
-    <div class="row">
-
         <div class="span 12">
             <section class="col-centered">
                 <div class="input-append">
                     <form action="#">
-                        <input id="appendedInputButton" size="16" type="text" placeholder='Name, Borough, Address'><div class="btn-group">
+                        <input ng-model="query" id="appendedInputButton" size="16" type="text" placeholder='Ex. "Brooklyn"'><div class="btn-group">
                           <button ui-sref="search" type="button" class="btn btn-default">Search</button>
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             <span class="caret"></span>
@@ -122,188 +117,98 @@
             </section>
         </div>
 
-        <!-- Gallery Items
+    <!-- Blog Content
+    ================================================== --> 
+    <div class="row">
+
+        <!-- Blog Posts
         ================================================== --> 
-        <div class="span12 gallery">
+        <div class="span12 blog">
 
-            <ul id="filterOptions" class="gallery-cats clearfix">
-                <li class="active"><a href="#" class="all">All</a></li> 
-                <li><a href="#" class="tag1">Tag 1</a></li>
-                <li><a href="#" class="tag2">Tag 2</a></li>
-                <li><a href="#" class="tag3">Tag 3</a></li>
-                <li><a href="#" class="tag4">Tag 4</a></li>
-            </ul>
+            <!-- Blog Post 1 -->
+            <article data-ng-repeat="cwspace in cwspaces | filter:query">
+                <div class="row">
+                    <div class="span2 blog-style-2">
+                        <h4 class="title-bg">{{cwspace.borough}} @{{cwspace.neighborhood}}</h4>
+                        <ul class="post-data">
+                            <li><a ui-sref="cwspace_by_id({cwspaceId: cwspace._id})"><img ng-src="/img/logos/{{cwspace.logo_filename}}"></a></li>
 
-            <div class="row clearfix">
-                <ul class="gallery-post-grid holder">
 
-                    <!-- Gallery Item 1 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag1">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-1-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
-                    </li>
+<!--                             <li><i class="icon-user"></i>Cost Range: </li>
+                            <li><i class="icon-comment"></i>Contact: </li>
+                            <li><i class="icon-tags"></i> <a href="#">photoshop</a>, <a href="#">HTML</a>, <a href="#">design</a></li> -->
 
-                    <!-- Gallery Item 2 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag1">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-2-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
-                    </li>
 
-                    <!-- Gallery Item 3 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag2">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-3-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
-                    </li>
+                        </ul>
+                    </div>
+                    <div class="span10">       
+<!--                         <a href="blog-single.htm"><img src="img/gallery/post-img-1.jpg" alt="Post Thumb"></a> -->
+                            <div class="post-body">
+                                <div class="well">
+                                    <div class="panel panel-default">
+                                      <!-- Default panel contents -->
+                                      <div class="panel-heading"><b><a ui-sref="cwspace_by_id({cwspaceId: cwspace._id})"><h5>{{cwspace.cwspace_name}}</a></b></h5></div>
+                                      <table class="table">
 
-                    <!-- Gallery Item 4 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag3">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-4-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
-                    </li>
+                                        <tr>
+                                          <td>ADDRESS</td>
+                                          <td>{{cwspace.address}} {{cwspace.floor_suite_or_room}}</td>
 
-                    <!-- Gallery Item 5 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag3">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-5-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
-                    </li>
+                                          <td>SITE</td>
+                                          <td><a href="{{cwspace.websiteurl}}">{{cwspace.websiteurl}}</a></td>
+                                        </tr>
 
-                    <!-- Gallery Item 6 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag4">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-6-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
-                    </li>
+                                        <tr>
+                                          <td>EMAIL</td>
+                                          <td>{{cwspace.email||"no information"}}</td>
 
-                    <!-- Gallery Item 7 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag4">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-6-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
-                    </li>
+                                          <td>TWITTER</td>
+                                          <td>{{cwspace.twitter||"no information"}}</td>
+                                        </tr>
 
-                    <!-- Gallery Item 8 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag2">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-2-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
-                    </li>
+                                        <tr>
+                                          <td>PHONE</td>
+                                          <td>{{cwspace.phone||"no information"}}</td>
 
-                    <!-- Gallery Item 9 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag2">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-1-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
-                    </li>
+                                          <td>MEMBERSHIP / STARTUP FEE</td>
+                                          <td>{{cwspace.membership_startupfees||"no information"}}</td>
+                                        </tr>
 
-                    <!-- Gallery Item 10 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag4">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-3-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
-                    </li>
+                                        <tr>
+                                          <td>DAILY RATE - ONE PERSON</td>
+                                          <td>{{cwspace.oneperson_dailyrate||"no information"}}</td>
 
-                    <!-- Gallery Item 11 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag2">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-5-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
-                    </li>
+                                          <td>SHARED DESK - MONTHLY RATE - ONE PERSON</td>
+                                          <td>{{cwspace.one_person_shareddesk_monthlyrate||"no information"}}</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                          <td>PERSONAL DESK - MONTHLY RATE - ONE PERSON</td>
+                                          <td>{{cwspace.oneperson_dedicateddesk_monthlyrate||"no information"}}</td>
 
-                    <!-- Gallery Item 12 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag4">
-                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
-                            <span class="gallery-icons">
-                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="gallery-single.htm" class="item-details-link"></a>
-                            </span>
-                        </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-4-6col.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
-                    </li>
+                                          <td>GROUP TABLE - MONTHLY RATE</td>
+                                          <td>{{cwspace.grouptablecluster_monthlyrate||"no information"}} for {{cwspace.grouptablecluster_capacity||" group table pricing"}}</td>
+                                        </tr>
 
-                </ul>
-            </div>
-
-            <!-- Pagination -->
-            <div class="pagination">
-                <ul>
-                <li class="active"><a href="#">Prev</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">Next</a></li>
-                </ul>
-            </div>
-
-        </div><!-- End gallery list-->
-
-    </div><!-- End container row -->
-    
+                                        <tr>
+                                          <td>PRIVATE OFFICE - MONTHLY RATE</td>
+                                          <td>{{cwspace.office_monthlyrate||"no information"}} for {{cwspace.office_capacity||"office pricing"}}</td>
+                                        </tr>
+                                      </table>
+                                    </div>
+                                </div>
+                           <blockquote>
+                                {{cwspace.description}}<br> <a href="http://www.alleywatch.com/2014/01/the-complete-guide-to-coworking-in-nyc/">-AlleyWatch</a>
+                           </blockquote>
+                        </div>
+                    </div>    
+                </div>
+            </article>
+        </div>
     </div> <!-- End Container -->
 
     <!-- Footer Area
         ================================================== -->
-
     <div class="footer-container"><!-- Begin Footer -->
         <div class="container">
             <div class="row footer-row">
