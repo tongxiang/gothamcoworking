@@ -41,10 +41,6 @@ var geocoding = function(cwspace){
         return deferred.promise;
     };
 
-    // geoCodeRequest(requestString).then(function(data){
-    //     console.log("wat up max?");
-    // });
-
     // 3) Take the response and parse it for the latlng information: 
     geoCodeRequest(requestString).then(function(data){
         var latLngObject = {latitude: data.results[0].geometry.location.lat, longitude: data.results[0].geometry.location.lng}
@@ -80,12 +76,10 @@ var geocoding = function(cwspace){
             amenities:              cwspace.amenities,
             owner:                  cwspace.owner
         });
-        // console.log(aspace);
         aspace.save(function(err){
             if (err) return (err);
             console.log('coworking space saving meow');
         });
-        // done(null, "coworking space saved") ONLY NECESSARY IF I WERE USING ASYNC
     });
 
 };
@@ -93,76 +87,3 @@ var geocoding = function(cwspace){
 //Geocoding function ends here.
 
 seedData.forEach(geocoding);
-
-// async.eachSeries(seedData, geocoding, function(err, result){
-//     if (err) { console.log(err)};
-//     else {
-//         console.log(result);
-//     }
-// })
-
-//BELOW IS THE JSON RESPONSE OBJECT FROM THE GOOGLE GEOCODING API
-
-// {
-//    "results" : [
-//       {
-//          "address_components" : [
-//             {
-//                "long_name" : "50",
-//                "short_name" : "50",
-//                "types" : [ "street_number" ]
-//             },
-//             {
-//                "long_name" : "Harrison Street",
-//                "short_name" : "Harrison St",
-//                "types" : [ "route" ]
-//             },
-//             {
-//                "long_name" : "Hoboken",
-//                "short_name" : "Hoboken",
-//                "types" : [ "locality", "political" ]
-//             },
-//             {
-//                "long_name" : "Hudson County",
-//                "short_name" : "Hudson County",
-//                "types" : [ "administrative_area_level_2", "political" ]
-//             },
-//             {
-//                "long_name" : "New Jersey",
-//                "short_name" : "NJ",
-//                "types" : [ "administrative_area_level_1", "political" ]
-//             },
-//             {
-//                "long_name" : "United States",
-//                "short_name" : "US",
-//                "types" : [ "country", "political" ]
-//             },
-//             {
-//                "long_name" : "07030",
-//                "short_name" : "07030",
-//                "types" : [ "postal_code" ]
-//             }
-//          ],
-//          "formatted_address" : "50 Harrison Street, Hoboken, NJ 07030, USA",
-//          "geometry" : {
-//             "location" : {
-//                "lat" : 40.7373655,
-//                "lng" : -74.0429188
-//             },
-//             "location_type" : "ROOFTOP",
-//             "viewport" : {
-//                "northeast" : {
-//                   "lat" : 40.73871448029149,
-//                   "lng" : -74.04156981970849
-//                },
-//                "southwest" : {
-//                   "lat" : 40.73601651970849,
-//                   "lng" : -74.04426778029151
-//                }
-//             }
-//          },
-//          "types" : [ "street_address" ]
-//       }
-//    ],
-//    "status" : "OK"
-// }

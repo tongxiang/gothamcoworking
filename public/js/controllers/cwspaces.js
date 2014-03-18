@@ -59,21 +59,22 @@ angular.module('gothamcoworking.cwspaces').controller('CwspacesController', ['$s
         });
     };
 
-    $scope.findOne = function() {
-        Cwspaces.get({
-            cwspaceId: $stateParams.cwspaceId
-        }, function(returnedCwspace) {
-            $scope.cwspace = returnedCwspace;
-        });
-    };
-
-    //  $scope.findOne = function() {
-    //     $scope.cwspaces = Cwspaces.get({cwspaceId: $stateParams.cwspaceId})
-
-    //         function({cwspaceId: $stateParams.cwspaceId}){
+    // $scope.findOne = function() {
+    //     Cwspaces.get({
+    //         cwspaceId: $stateParams.cwspaceId
+    //     }, function(returnedCwspace) {
+    //         $scope.cwspace = returnedCwspace;
     //     });
     // };
 
-
+    $scope.findOne = function() {
+        $scope.cws = {};
+        $scope.cws.latlng = {longitude: 0, latitude: 0};
+        $scope.cwspace = Cwspaces.get({
+            cwspaceId: $stateParams.cwspaceId
+        }, function() {
+            $scope.cws.latlng = $scope.cwspace.latlng;
+        });
+    };
 
 }]);

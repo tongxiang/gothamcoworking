@@ -1,6 +1,4 @@
-<div class="home">
-
-<section data-ng-controller="CwspacesController" data-ng-init="find()">
+<div class="home" data-ng-controller="CwspacesController" data-ng-init="find()">
     <!-- Color Bars (above header)-->
     <div class="color-bar-1"></div>
     <div class="color-bar-2 color-bg"></div>
@@ -14,9 +12,10 @@
         <div class="span5 logo">
             <a href="/"><img class="photobox" src="img/boldGothamnonboldCoworking.png" alt=""></a>
         </div>
+        
         <!-- Main Navigation
         ================================================== -->
-        <div class="span7 navigation btn-group">
+        <div class="span7 navigation">
             <div class="navbar hidden-phone">
             
             <ul class="nav">
@@ -28,9 +27,8 @@
                     <li><a href="index-slider.htm">Slider Only</a></li>
                 </ul>
             </li>
-
            <li><a href="features.htm">Features</a></li>
-            <li class="dropdown active">
+            <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="page-full-width.htm">Pages <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="page-full-width.htm">Full Width</a></li>
@@ -39,9 +37,10 @@
                     <li><a href="page-double-sidebar.htm">Double Sidebar</a></li>
                     <li><a href="page-price-table.htm">Prices Table</a></li>
                     <li><a href="page-services.htm">Services</a></li>
+                    
                 </ul>
             </li>
-             <li class="dropdown">
+             <li class="dropdown active">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="gallery-4col.htm">Gallery <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="gallery-3col.htm">Gallery 3 Column</a></li>
@@ -94,27 +93,20 @@
                 </select>
                 </div>
                 </form>
+
         </div>
         
       </div><!-- End Header -->
      
     <!-- Page Content
     ================================================== --> 
-    
-    <!-- Title Header -->
     <div class="row">
-        <div class="span12">
-            <h2>The definitive guide to New York City's coworking spaces.</h2>
-            <p class="lead">Discover, explore, and share your own locus of creativity.</p>
-        </div>
 
-<!--         <a ui-sref="cwspace_by_id({cwspaceId: cwspace._id})">
- -->
         <div class="span 12">
             <section class="col-centered">
                 <div class="input-append">
                     <form action="#">
-                        <input ng-model="query" id="appendedInputButton" size="16" type="text" placeholder='Name, Borough, Address'><div class="btn-group">
+                        <input id="appendedInputButton" size="16" type="text" placeholder='Name, Borough, Address'><div class="btn-group">
                           <button ui-sref="search" type="button" class="btn btn-default">Search</button>
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             <span class="caret"></span>
@@ -130,47 +122,165 @@
             </section>
         </div>
 
-        <div class="span12">
-            <google-map 
-                center="map.center" 
-                zoom="map.zoom"
-                draggable="true">
-            <marker data-ng-repeat="cwspace in cwspaces" coords="cwspace.latlng">
-            </marker>
-
-            </google-map>  
-        </div>  
-    </div>
-    
-    <div class="row">
-            <h4 class="title-bg">Coworking Spaces</h4>
-
         <!-- Gallery Items
-        ================================================== -->
+        ================================================== --> 
         <div class="span12 gallery">
 
             <ul id="filterOptions" class="gallery-cats clearfix">
                 <li class="active"><a href="#" class="all">All</a></li> 
-                <li><a href="#" class="tag1">Manhattan</a></li>
-                <li><a href="#" class="tag2">Brooklyn</a></li>
-                <li><a href="#" class="tag3">The Bronx</a></li>
-                <li><a href="#" class="tag4">Queens</a></li>
-                <li><a href="#" class="tag5">Staten Island</a></li>
+                <li><a href="#" class="tag1">Tag 1</a></li>
+                <li><a href="#" class="tag2">Tag 2</a></li>
+                <li><a href="#" class="tag3">Tag 3</a></li>
+                <li><a href="#" class="tag4">Tag 4</a></li>
             </ul>
 
             <div class="row clearfix">
                 <ul class="gallery-post-grid holder">
+
                     <!-- Gallery Item 1 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag1" data-ng-repeat="cwspace in cwspaces | filter:query">
+                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag1">
                         <span class="gallery-hover-6col hidden-phone hidden-tablet">
                             <span class="gallery-icons">
                                 <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
                                 <a href="gallery-single.htm" class="item-details-link"></a>
                             </span>
                         </span>
-                        <a ui-sref="cwspace_by_id({cwspaceId: cwspace._id})"><img ng-src="/img/interiorshots/{{cwspace.interiorphoto_filename}}" alt="Gallery"></a>
-                        <span class="project-details"><a ui-sref="cwspace_by_id({cwspaceId: cwspace._id})">{{(cwspace.cwspace_name).substr(0, 17)}}</a>{{cwspace.neighborhood}}</span>
+                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-1-6col.jpg" alt="Gallery"></a>
+                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
                     </li>
+
+                    <!-- Gallery Item 2 -->
+                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag1">
+                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
+                            <span class="gallery-icons">
+                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
+                                <a href="gallery-single.htm" class="item-details-link"></a>
+                            </span>
+                        </span>
+                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-2-6col.jpg" alt="Gallery"></a>
+                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
+                    </li>
+
+                    <!-- Gallery Item 3 -->
+                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag2">
+                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
+                            <span class="gallery-icons">
+                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
+                                <a href="gallery-single.htm" class="item-details-link"></a>
+                            </span>
+                        </span>
+                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-3-6col.jpg" alt="Gallery"></a>
+                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
+                    </li>
+
+                    <!-- Gallery Item 4 -->
+                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag3">
+                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
+                            <span class="gallery-icons">
+                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
+                                <a href="gallery-single.htm" class="item-details-link"></a>
+                            </span>
+                        </span>
+                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-4-6col.jpg" alt="Gallery"></a>
+                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
+                    </li>
+
+                    <!-- Gallery Item 5 -->
+                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag3">
+                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
+                            <span class="gallery-icons">
+                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
+                                <a href="gallery-single.htm" class="item-details-link"></a>
+                            </span>
+                        </span>
+                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-5-6col.jpg" alt="Gallery"></a>
+                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
+                    </li>
+
+                    <!-- Gallery Item 6 -->
+                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag4">
+                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
+                            <span class="gallery-icons">
+                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
+                                <a href="gallery-single.htm" class="item-details-link"></a>
+                            </span>
+                        </span>
+                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-6-6col.jpg" alt="Gallery"></a>
+                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
+                    </li>
+
+                    <!-- Gallery Item 7 -->
+                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag4">
+                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
+                            <span class="gallery-icons">
+                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
+                                <a href="gallery-single.htm" class="item-details-link"></a>
+                            </span>
+                        </span>
+                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-6-6col.jpg" alt="Gallery"></a>
+                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
+                    </li>
+
+                    <!-- Gallery Item 8 -->
+                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag2">
+                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
+                            <span class="gallery-icons">
+                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
+                                <a href="gallery-single.htm" class="item-details-link"></a>
+                            </span>
+                        </span>
+                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-2-6col.jpg" alt="Gallery"></a>
+                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
+                    </li>
+
+                    <!-- Gallery Item 9 -->
+                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag2">
+                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
+                            <span class="gallery-icons">
+                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
+                                <a href="gallery-single.htm" class="item-details-link"></a>
+                            </span>
+                        </span>
+                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-1-6col.jpg" alt="Gallery"></a>
+                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
+                    </li>
+
+                    <!-- Gallery Item 10 -->
+                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag4">
+                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
+                            <span class="gallery-icons">
+                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
+                                <a href="gallery-single.htm" class="item-details-link"></a>
+                            </span>
+                        </span>
+                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-3-6col.jpg" alt="Gallery"></a>
+                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
+                    </li>
+
+                    <!-- Gallery Item 11 -->
+                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag2">
+                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
+                            <span class="gallery-icons">
+                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
+                                <a href="gallery-single.htm" class="item-details-link"></a>
+                            </span>
+                        </span>
+                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-5-6col.jpg" alt="Gallery"></a>
+                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
+                    </li>
+
+                    <!-- Gallery Item 12 -->
+                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag4">
+                        <span class="gallery-hover-6col hidden-phone hidden-tablet">
+                            <span class="gallery-icons">
+                                <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
+                                <a href="gallery-single.htm" class="item-details-link"></a>
+                            </span>
+                        </span>
+                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-4-6col.jpg" alt="Gallery"></a>
+                        <span class="project-details"><a href="gallery-single.htm">Project Name Here</a>Add a beautiful description.</span>
+                    </li>
+
                 </ul>
             </div>
 
@@ -188,9 +298,8 @@
         </div><!-- End gallery list-->
 
     </div><!-- End container row -->
-
+    
     </div> <!-- End Container -->
-
 
     <!-- Footer Area
         ================================================== -->
@@ -270,5 +379,4 @@
     <!-- Scroll to Top -->  
     <div id="toTop" class="hidden-phone hidden-tablet">Back to Top</div>
     
-</section>
 </div>
