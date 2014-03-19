@@ -110,14 +110,12 @@
 
 <!--         <a ui-sref="cwspace_by_id({cwspaceId: cwspace._id})">
  -->
-{{query}}
-
         <div class="span 12">
             <section class="col-centered">
                 <div class="input-append">
-                    <form action="#">
-                        <input ng-model="query" id="appendedInputButton" size="16" type="text" placeholder='Name, Borough, Address'><div class="btn-group">
-                          <button data-ng-click= "redirectFunction(query)" type="button" class="btn btn-default">Search</button>
+                    <form ng-submit="redirectFunction(query)">
+                        <input ng-autocomplete watchEnter="true" ng-model="query" id="appendedInputButton" size="16" type="text" placeholder='Name, Borough, Address'><div class="btn-group">
+                          <input type="submit" class="btn btn-default">Search</input>
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             <span class="caret"></span>
                             <span class="sr-only">Filter By</span>
@@ -125,45 +123,45 @@
                           <ul class="dropdown-menu" role="menu">
                             <li><a href="#">Address</a></li>
                             <li><a href="#">Name</a></li>
-                          </ul>
-                        </div>
-                    </form>
+                          </ul>>
+
+                        </div                    </form>
                 </div>
             </section>
         </div>
 
-        <div class="span12">
+<!--         <div class="span12">
             <google-map 
                 center="map.center" 
                 zoom="map.zoom"
                 draggable="true">
-            <marker data-ng-repeat="cwspace in cwspaces | filter: query" coords="cwspace.latlng">
+            <marker data-ng-repeat="cwspace in cwspaces" coords="cwspace.latlng">
             </marker>
 
             </google-map>  
-        </div>  
+        </div>   -->
     </div>
     
     <div class="row">
-            <h4 class="title-bg">Coworking Spaces</h4>
+            <h4 class="title-bg">All Coworking Spaces</h4>
 
         <!-- Gallery Items
         ================================================== -->
         <div class="span12 gallery">
 
-            <ul id="filterOptions" class="gallery-cats clearfix">
+<!--             <ul id="filterOptions" class="gallery-cats clearfix">
                 <li class="active"><a href="#" class="all">All</a></li> 
                 <li><a href="#" class="tag1">Manhattan</a></li>
                 <li><a href="#" class="tag2">Brooklyn</a></li>
                 <li><a href="#" class="tag3">The Bronx</a></li>
                 <li><a href="#" class="tag4">Queens</a></li>
                 <li><a href="#" class="tag5">Staten Island</a></li>
-            </ul>
+            </ul> -->
 
             <div class="row clearfix">
                 <ul class="gallery-post-grid holder">
                     <!-- Gallery Item 1 -->
-                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag1" data-ng-repeat="cwspace in cwspaces | filter:query">
+                    <li  class="span2 gallery-item" data-id="id-1" data-type="tag1" data-ng-repeat="cwspace in cwspaces">
                         <span class="gallery-hover-6col hidden-phone hidden-tablet">
                             <span class="gallery-icons">
                                 <a href="img/gallery/gallery-img-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
@@ -177,15 +175,6 @@
             </div>
 
             <!-- Pagination -->
-            <div class="pagination">
-                <ul>
-                <li class="active"><a href="#">Prev</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">Next</a></li>
-                </ul>
-            </div>
 
         </div><!-- End gallery list-->
 

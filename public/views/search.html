@@ -94,15 +94,19 @@
                 </form>
 
         </div>
-        
       </div><!-- End Header -->
-{{query}}
+        
+
+    <!-- Blog Content
+    ================================================== --> 
+    <div class="row">
         <div class="span 12">
+            <h2>Find your center.</h2>
+            <p class="lead">Search by location, neighborhood or even perks – "free coffee."</p>
             <section class="col-centered">
                 <div class="input-append">
                     <form action="#">
-                        {{query}}
-                        <input ng-model="query" id="appendedInputButton" size="16" type="text" placeholder='Ex. "Brooklyn"'><div class="btn-group">
+                        <input ng-autocomplete ng-model="query" id="appendedInputButton" size="16" type="text" placeholder='Ex. "Brooklyn"' details="details"><div class="btn-group">
                           <button ui-sref="search" type="button" class="btn btn-default">Search</button>
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             <span class="caret"></span>
@@ -118,14 +122,22 @@
             </section>
         </div>
 
-    <!-- Blog Content
-    ================================================== --> 
+        <div>Location Details: {{details.geometry.location}}, Latitude: {{details.geometry.location.k}}, Longitude: {{details.geometry.location.A}}</div>
+
+        <div class="span12">
+            <google-map 
+                center="map.center" 
+                zoom="map.zoom"
+                draggable="true">
+            <marker data-ng-repeat="cwspace in cwspaces | filter: query" coords="cwspace.latlng">
+            </marker>
+
+            </google-map>  
+        </div>
+    </div>
+
     <div class="row">
-
-        <!-- Blog Posts
-        ================================================== --> 
         <div class="span12 blog">
-
             <!-- Blog Post 1 -->
             <article data-ng-repeat="cwspace in cwspaces | filter:query">
                 <div class="row">
@@ -230,7 +242,7 @@
                     </ul>
                 </div>
                 <div class="span3 footer-col">
-                    <h5>Latest Tweets</h5>
+                    <h5>Acknowledgments</h5>
                     <ul>
                         <li><a href="#">@Basicoh_</a> Hey! Buy this beautiful theme right now!.</li>
                         <li><a href="#">@Basicoh_</a> Wonder Theme is out Now!. You can buy it in Wrapbootstrap.com. Really easy to configure with a wonderful design.</li>
