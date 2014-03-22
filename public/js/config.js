@@ -19,8 +19,16 @@ angular.module('gothamcoworking').config(['$stateProvider', '$urlRouterProvider'
         url: '/search/:searchParams', //eventually make this /search/:searchParams
         templateUrl: 'views/search.html'
         })
+      .state('submit', {
+        url: '/submit',
+        templateUrl: 'views/submit.html'
+      })
   }
-]);
+]).run(function($rootScope, $location){
+    $rootScope.$on('$stateChangeSuccess', function(){
+        ga('send', 'pageview', $location.path());
+    });
+});
 
 //check out StateProvider documentation 
 

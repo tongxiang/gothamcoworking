@@ -14,51 +14,26 @@
         <div class="span5 logo">
             <a href="/"><img class="photobox" src="img/boldGothamnonboldCoworking.png" alt=""></a>
         </div>
+
         <!-- Main Navigation
         ================================================== -->
         <div class="span7 navigation btn-group">
             <div class="navbar hidden-phone">
-            
+    
             <ul class="nav">
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="index-1.htm">Home <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="index.htm">Full Page</a></li>
-                    <li><a href="index-gallery.htm">Gallery Only</a></li>
-                    <li><a href="index-slider.htm">Slider Only</a></li>
-                </ul>
+                <a ui-sref="home">Home</a>
             </li>
 
-           <li><a href="features.htm">Features</a></li>
-            <li class="dropdown active">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="page-full-width.htm">Pages <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="page-full-width.htm">Full Width</a></li>
-                    <li><a href="page-right-sidebar.htm">Right Sidebar</a></li>
-                    <li><a href="page-left-sidebar.htm">Left Sidebar</a></li>
-                    <li><a href="page-double-sidebar.htm">Double Sidebar</a></li>
-                    <li><a href="page-price-table.htm">Prices Table</a></li>
-                    <li><a href="page-services.htm">Services</a></li>
-                </ul>
+            <li class="dropdown"><a ui-sref="search">Search</a></li>
+
+            <li class="dropdown">
+                <a ui-sref="submit">Submit a space</a>
             </li>
-             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="gallery-4col.htm">Gallery <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="gallery-3col.htm">Gallery 3 Column</a></li>
-                    <li><a href="gallery-4col.htm">Gallery 4 Column</a></li>
-                    <li><a href="gallery-6col.htm">Gallery 6 Column</a></li>
-                    <li><a href="gallery-single.htm">Gallery Single</a></li>
-                </ul>
-             </li>
-             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="blog-style1.htm">Blog <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="blog-style1.htm">Blog Style 1</a></li>
-                    <li><a href="blog-style2.htm">Blog Style 2</a></li>
-                    <li><a href="blog-single.htm">Blog Single</a></li>
-                </ul>
-             </li>
-             <li><a href="page-contact.htm">Contact</a></li>
+
+            <li class="dropdown">
+                <a href="mailto:gothamcoworkingnyc@gmail.com?Subject=Getting%20In%20Touch" target="_top">Contact </a>
+            </li>
             </ul>
            
             </div>
@@ -107,39 +82,6 @@
             <h2>The definitive guide to New York City's coworking spaces.</h2>
             <p class="lead">Discover, explore, and share your own locus of creativity.</p>
         </div>
-
-<!--         <a ui-sref="cwspace_by_id({cwspaceId: cwspace._id})">
- -->
-        <div class="span 12">
-            <section class="col-centered">
-                <div class="input-append">
-                    <form ng-submit="redirectFunction(query)">
-                        <input ng-autocomplete watchEnter="true" ng-model="query" id="appendedInputButton" size="16" type="text" placeholder='Name, Borough, Address'><div class="btn-group">
-                          <input type="submit" class="btn btn-default">Search</input>
-                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            <span class="caret"></span>
-                            <span class="sr-only">Filter By</span>
-                          </button>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Address</a></li>
-                            <li><a href="#">Name</a></li>
-                          </ul>>
-
-                        </div                    </form>
-                </div>
-            </section>
-        </div>
-
-<!--         <div class="span12">
-            <google-map 
-                center="map.center" 
-                zoom="map.zoom"
-                draggable="true">
-            <marker data-ng-repeat="cwspace in cwspaces" coords="cwspace.latlng">
-            </marker>
-
-            </google-map>  
-        </div>   -->
     </div>
     
     <div class="row">
@@ -189,66 +131,46 @@
     <div class="footer-container"><!-- Begin Footer -->
         <div class="container">
             <div class="row footer-row">
-                <div class="span3 footer-col">
-                    <h5>Contact Us</h5>
-                   <img src="img/wonder-footer-logo.png" alt="Wonder" ><br><br>
+                <div class="span4 footer-col">
+                    <h5>Contact</h5>
                     <address>
-                        <strong>Wonder Bunker</strong><br>
-                        6064 Amazing St, <br>
-                        Madrid, Spain.<br>
+                        <p>Made by <a href="http://tongwxiang.com">Tong Xiang</a> at <a href="http://fullstackacademy.com">Fullstack Academy.</a><br><br>
+                        get in touch at
+                        <a href="mailto:gothamcoworkingnyc@gmail.com?Subject=Getting%20In%20Touch" target="_top">
+                        GothamCoworkingNYC@gmail.com</a>
+                        </p>
                     </address>
                     <ul class="social-icons">
-                        <li><a href="#" class="social-icon facebook"></a></li>
-                        <li><a href="#" class="social-icon twitter"></a></li>
-                        <li><a href="#" class="social-icon dribble"></a></li>
-                        <li><a href="#" class="social-icon rss"></a></li>
-                        <li><a href="#" class="social-icon forrst"></a></li>
+                        <li><a href="https://twitter.com/tong_xiang" class="social-icon twitter"></a></li>
                     </ul>
                 </div>
-                <div class="span3 footer-col">
-                    <h5>Latest Tweets</h5>
-                    <ul>
-                        <li><a href="#">@Basicoh_</a> Hey! Buy this beautiful theme right now!.</li>
-                        <li><a href="#">@Basicoh_</a> Wonder Theme is out Now!. You can buy it in Wrapbootstrap.com. Really easy to configure with a wonderful design.</li>
-                        <li><a href="#">@Basicoh_</a> If you are an agency, freelancer or a studio, this theme is made for you. Take a look and enjoy it.</li>
+                <div class="span4 footer-col">
+                    <h5>ACKNOWLEDGMENTS</h5>
+                    <ul><b>Many thanks to:</b><br>
+                        <li><br>Charles Bonello, for his very helpful data on coworking spaces, which can be found <a href="http://www.charlesvbonello.com/post/35710200285/resource-every-co-working-space-in-nyc">here.</a></li>
+                        <li>Cheney Tsai, for his equally helpful collection.</li>
+                        <li><a href="http://www.alleywatch.com/2014/01/the-complete-guide-to-coworking-in-nyc/">AlleyWatch,</a> the source of the witty quotes on this site.</li>
+                        <li><a href="http://www.behance.net/obieta">Geraro Obieta,</a> whose design was used for the Gotham Coworking logo--image modified by removing background and resizing. Portfolio available <a href="https://www.flickr.com/photos/7308386@N07/5159930578/">here,</a> Creative Commons license available <a href="https://creativecommons.org/licenses/by/2.0/legalcode">here.</a>
+                        <li>Nimit Maru and David Yang--the extraordinary co-founders and instructors at <a href="http://fullstackacademy.com">Fullstack Academy</a>--for all their help and guidance.
                     </ul>
                 </div>
-                <div class="span3 footer-col">
-                    <h5>Latest Posts</h5>
-                     <ul class="post-list">
-                        <li><a href="#">Example post number 1</a></li>
-                        <li><a href="#">Another example post title</a></li>
-                        <li><a href="#">This is the third post title here</a></li>
-                        <li><a href="#">Yet another post title for this list</a></li>
-                        <li><a href="#">No more posts, this is the last one</a></li>
-                    </ul>
-                </div>
-                <div class="span3 footer-col">
-                    <h5>Flickr Photos</h5>
-                    <ul class="img-feed">
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-2.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-3.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-4.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-5.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-6.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-7.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-8.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-9.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-10.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-11.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-12.jpg" alt="Image Feed"></a></li>
-                    </ul>
+                <div class="span4 footer-col">
+
+                    <h5>MADE WITH LOVE @</h5>
+                    <div class="fullstacklogo">
+                    <a href="http://fullstackacademy.com"><img src="/img/Fullstack-Name-Only.png"></a>
+                    </div>
                 </div>
             </div>
 
             <div class="row"><!-- Begin Sub Footer -->
                 <div class="span12 footer-col footer-sub">
                     <div class="row no-margin">
-                        <div class="span6"><span class="left">Copyright 2012 Wonder Theme. All rights reserved.</span></div>
+                        <div class="span6"><span class="left">Copyright 2014 GothamCoworking. All rights reserved.</span></div>
                         <div class="span6">
                             <span class="right">
-                            <a href="#">Home</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Gallery</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Blog</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Contact</a>
+                            <a href="/">Home</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a ui-sref="search">Search</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a ui-sref="submit">Submit a Space</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="mailto:gothamcoworkingnyc@gmail.com?Subject=Getting%20In%20Touch" target="_top">
+                            Contact</a>
                             </span>
                         </div>
                     </div>
@@ -259,7 +181,7 @@
     </div><!-- End Footer --> 
     
     <!-- Scroll to Top -->  
-    <div id="toTop" class="hidden-phone hidden-tablet">Back to Top</div>
+    <a href="#" id="toTop" class="hidden-phone hidden-tablet">Back to Top</a>
     
 </section>
 </div>

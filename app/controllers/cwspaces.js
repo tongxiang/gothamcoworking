@@ -49,9 +49,6 @@ exports.all = function(req, res){
 //     });
 // };
 
-
-
-
 // /**
 //  * Create an cwspace
 //  */

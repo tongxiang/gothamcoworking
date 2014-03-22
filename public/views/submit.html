@@ -1,5 +1,8 @@
-<div class="home" data-ng-controller="CwspacesController" data-ng-init="find()">
-<div class="color-bar-1"></div>
+
+
+<div class="home">
+    <!-- Color Bars (above header)-->
+    <div class="color-bar-1"></div>
     <div class="color-bar-2 color-bg"></div>
     
     <div class="container">
@@ -67,124 +70,26 @@
                 </form>
 
         </div>
-      </div><!-- End Header -->
         
-
-    <!-- Blog Content
+      </div><!-- End Header -->
+     
+    <!-- Page Content
     ================================================== --> 
-    <div class="row">
-        <div class="span 12">
-            <h2>Find your center.</h2>
-            <p class="lead">Search by location, neighborhood or even perks – "free coffee."</p>
-            <section class="col-centered">
-                <div class="input-append">
-                    <form action="#">
-                        <input ng-model="query" id="appendedInputButton" size="16" type="text" placeholder="ex. 'free coffee' or '3D printer'" details="details">
-                        <input ng-autocomplete id="appendedInputButton" size="16" type="text" placeholder="your address" details="details">
-                        <div class="btn-group">
-                          <button ui-sref="search" type="button" class="btn btn-default">Search</button>
-                        </div>
-                    </form>
-                </div>
-            </section>
-        </div>
+    <div class="row"><!--Container row-->
 
-        <div>Location Details: {{details.geometry.location}}, Latitude: {{details.geometry.location.k}}, Longitude: {{details.geometry.location.A}}</div>
+        <div class="span8 contact"><!--Begin page content column-->
 
-        <div class="span12">
-            <google-map 
-                center="map.center" 
-                zoom="map.zoom"
-                draggable="true">
-            <marker data-ng-repeat="cwspace in cwspaces | filter: query" coords="cwspace.latlng">
-            </marker>
+            <h2>SHARE YOUR SPACE</h2>
 
-            </google-map>  
-        </div>
-    </div>
+                <iframe height="994" allowTransparency="true" frameborder="0" scrolling="no" style="width:100%;border:none"  src="https://tongxiang.wufoo.com/embed/z10u7xix0d8d44s/"><a href="https://tongxiang.wufoo.com/forms/z10u7xix0d8d44s/">Fill out my Wufoo form!</a></iframe><div id="wuf-adv" style="font-family:inherit;font-size: small;color:#a7a7a7;text-align:center;display:block;">HTML Forms powered by <a href="http://www.wufoo.com">Wufoo</a>.</div>
 
-    <div class="row">
-        <div class="span12 blog">
-            <!-- Blog Post 1 -->
-            <article data-ng-repeat="cwspace in cwspaces | filter:query">
-                <div class="row">
-                    <div class="span2 blog-style-2">
-                        <h4 class="title-bg">{{cwspace.borough}} @{{cwspace.neighborhood}}</h4>
-                        <ul class="post-data">
-                            <li><a ui-sref="cwspace_by_id({cwspaceId: cwspace._id})"><img ng-src="/img/logos/{{cwspace.logo_filename}}"></a></li>
+        </div> <!--End page content column-->
 
+        <!-- Sidebar
+        ================================================== --> 
 
-<!--                             <li><i class="icon-user"></i>Cost Range: </li>
-                            <li><i class="icon-comment"></i>Contact: </li>
-                            <li><i class="icon-tags"></i> <a href="#">photoshop</a>, <a href="#">HTML</a>, <a href="#">design</a></li> -->
-
-
-                        </ul>
-                    </div>
-                    <div class="span10">       
-<!--                         <a href="blog-single.htm"><img src="img/gallery/post-img-1.jpg" alt="Post Thumb"></a> -->
-                            <div class="post-body">
-                                <div class="well">
-                                    <div class="panel panel-default">
-                                      <!-- Default panel contents -->
-                                      <div class="panel-heading"><b><a ui-sref="cwspace_by_id({cwspaceId: cwspace._id})"><h5>{{cwspace.cwspace_name}}</a></b></h5></div>
-                                      <table class="table">
-
-                                        <tr>
-                                          <td>ADDRESS</td>
-                                          <td>{{cwspace.address}} {{cwspace.floor_suite_or_room}}</td>
-
-                                          <td>SITE</td>
-                                          <td><a href="{{cwspace.websiteurl}}">{{cwspace.websiteurl}}</a></td>
-                                        </tr>
-
-                                        <tr>
-                                          <td>EMAIL</td>
-                                          <td>{{cwspace.email||"no information"}}</td>
-
-                                          <td>TWITTER</td>
-                                          <td>{{cwspace.twitter||"no information"}}</td>
-                                        </tr>
-
-                                        <tr>
-                                          <td>PHONE</td>
-                                          <td>{{cwspace.phone||"no information"}}</td>
-
-                                          <td>MEMBERSHIP / STARTUP FEE</td>
-                                          <td>{{cwspace.membership_startupfees||"no information"}}</td>
-                                        </tr>
-
-                                        <tr>
-                                          <td>DAILY RATE - ONE PERSON</td>
-                                          <td>{{cwspace.oneperson_dailyrate||"no information"}}</td>
-
-                                          <td>SHARED DESK - MONTHLY RATE - ONE PERSON</td>
-                                          <td>{{cwspace.one_person_shareddesk_monthlyrate||"no information"}}</td>
-                                        </tr>
-                                        
-                                        <tr>
-                                          <td>PERSONAL DESK - MONTHLY RATE - ONE PERSON</td>
-                                          <td>{{cwspace.oneperson_dedicateddesk_monthlyrate||"no information"}}</td>
-
-                                          <td>GROUP TABLE - MONTHLY RATE</td>
-                                          <td>{{cwspace.grouptablecluster_monthlyrate||"no information"}} for {{cwspace.grouptablecluster_capacity||" group table pricing"}}</td>
-                                        </tr>
-
-                                        <tr>
-                                          <td>PRIVATE OFFICE - MONTHLY RATE</td>
-                                          <td>{{cwspace.office_monthlyrate||"no information"}} for {{cwspace.office_capacity||"office pricing"}}</td>
-                                        </tr>
-                                      </table>
-                                    </div>
-                                </div>
-                           <blockquote>
-                                {{cwspace.description}}<br> <a href="http://www.alleywatch.com/2014/01/the-complete-guide-to-coworking-in-nyc/">-AlleyWatch</a>
-                           </blockquote>
-                        </div>
-                    </div>    
-                </div>
-            </article>
-        </div>
+    </div><!-- End container row -->
+    
     </div> <!-- End Container -->
 
     <!-- Footer Area
@@ -245,4 +150,5 @@
     <!-- Scroll to Top -->  
     <div id="toTop" class="hidden-phone hidden-tablet">Back to Top</div>
     
+</section>
 </div>
