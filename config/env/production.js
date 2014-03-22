@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://localhost/cwspaces',
+    db: process.env.MONGOLAB_URI,
     app: {
         name: 'Coworking Spaces'
     },
