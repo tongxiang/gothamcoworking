@@ -5,6 +5,8 @@ angular.module('gothamcoworking.cwspaces').controller('CwspacesController', ['$s
 
     $scope.query = "";
 
+    $scope.address ="";
+
     $scope.map = {
         center: {
             latitude: 40.7500, 

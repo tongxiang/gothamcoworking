@@ -75,12 +75,12 @@
     <div class="row">
         <div class="span 12">
             <h2>Find your center.</h2>
-            <p class="lead">Search by location, neighborhood or even perks – "free coffee."</p>
+            <p class="lead">Search by location, neighborhood, or even perks like free coffee.</p>
             <section class="col-centered">
                 <div class="input-append">
                     <form action="#">
-                        <input ng-model="query" id="appendedInputButton" size="16" type="text" placeholder="ex. 'free coffee' or '3D printer'" details="details">
-                        <input ng-autocomplete id="appendedInputButton" size="16" type="text" placeholder="your address" details="details">
+                        <input ng-model="query" id="appendedInputButton" size="16" type="text" placeholder="ex: 'free coffee' or '3D printer'" details="details">
+                        <input ng-autocomplete ng-model="address" id="appendedInputButton" size="16" type="text" placeholder="neighborhood or address" details="details">
                         <div class="btn-group">
                           <button ui-sref="search" type="button" class="btn btn-default">Search</button>
                         </div>
