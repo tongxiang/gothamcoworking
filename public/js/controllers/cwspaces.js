@@ -14,7 +14,6 @@ angular.module('gothamcoworking.cwspaces').controller('CwspacesController', ['$s
         }, 
         zoom: 11
     };
-    
 
     $scope.redirectFunction = function(query){
         $location.path('/search/'+query);
@@ -65,18 +64,18 @@ angular.module('gothamcoworking.cwspaces').controller('CwspacesController', ['$s
         $scope.cwspaces = Cwspaces.query(function() {
             $scope.query = $stateParams.searchParams;
             console.log($scope.query);
-            // $scope.cwspaces = cwspaces;
-            // console.log(cwspaces)
         });
+
     };
 
-    $scope.findOne = function() {
-        Cwspaces.get({
-            cwspaceId: $stateParams.cwspaceId
-        }, function(returnedCwspace) {
-            $scope.cwspace = returnedCwspace;
-        });
-    };
+    // $scope.findOne = function() {
+    //     Cwspaces.get({
+    //         cwspaceId: $stateParams.cwspaceId
+    //     }, function(returnedCwspace) {
+    //         $scope.cwspace = returnedCwspace;
+            
+    //     });
+    // };
 
     $scope.findOne = function() {
         $scope.cws = {};
@@ -85,6 +84,18 @@ angular.module('gothamcoworking.cwspaces').controller('CwspacesController', ['$s
             cwspaceId: $stateParams.cwspaceId
         }, function() {
             $scope.cws.latlng = $scope.cwspace.latlng;
+
+            console.log("about to attach Alleywatch boolean");
+
+            if ($scope.cwspace.generic_description){
+                console.log("AlleyWatch is now false")
+                $scope.AlleyWatch = false;
+            }
+            else {
+                $scope.AlleyWatch = true;
+                console.log("AlleyWatch is now true")
+
+            }
 
         });
     };

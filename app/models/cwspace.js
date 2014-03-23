@@ -31,6 +31,7 @@ var CwspaceSchema = new Schema({
     logo_filename: String,
     interiorphoto_filename: String,
     description: String,
+    generic_description: String,
     amenities: String,
     owner: String
 });

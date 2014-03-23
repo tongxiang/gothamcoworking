@@ -9,9 +9,14 @@ var Q = require('q');
 var Cwspace = cwspaceModel.Cwspace;
 
 var mongoose = require('mongoose');
-mongoose.connect("mongodb://heroku_app23270994:jamrieh6p4j1f53laklb2g2gb@dbh70.mongolab.com:27707/heroku_app23270994", function(err){
+mongoose.connect("mongodb://heroku_app23270994:heroku_app23270994@dbh70.mongolab.com:27707/heroku_app23270994", function(err){
     if (err) throw err;
 });
+
+// var mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost/cwspaces', function(err){
+//     if (err) throw err;
+// });
 
 var request = require('request');
 
@@ -73,6 +78,7 @@ var geocoding = function(cwspace){
             logo_filename:          cwspace.logo_filename,
             interiorphoto_filename: cwspace.interiorphoto_filename,
             description:            cwspace.description,
+            generic_description:    cwspace.generic_description,
             amenities:              cwspace.amenities,
             owner:                  cwspace.owner
         });
