@@ -13,7 +13,7 @@ mongoose.connect("mongodb://heroku_app23270994:jamrieh6p4j1f53laklb2g2gb@dbh70.m
     if (err) throw err;
 });
 
-// var mongoose = require('mongoose');
+// var mongoose = require('mongoos');
 // mongoose.connect('mongodb://localhost/cwspaces', function(err){
 //     if (err) throw err;
 // });
@@ -54,7 +54,7 @@ var geocoding = function(cwspace){
         var aspace = new Cwspace({
             cwspace_name:           cwspace.cwspace_name,
             borough:                cwspace.borough,
-            neighborhodod:           cwspace.neighborhood,
+            neighborhood:           cwspace.neighborhood,
             address:                cwspace.address,
             latlng:                 {latitude: data.results[0].geometry.location.lat, longitude: data.results[0].geometry.location.lng},
             geo:                    [data.results[0].geometry.location.lng, data.results[0].geometry.location.lat],
