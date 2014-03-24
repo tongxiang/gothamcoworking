@@ -37,35 +37,17 @@ exports.all = function(req, res){
 };
 
 exports.nearPlaces = function(req, res) {
-    console.log(req.query, "these are the req.params")
-     //I'm just sending the geolocation points in a format like this 39.92,-23
-    var coord = req.query.lngLat.split(","); //or should this be req.params.geo.split(',') ???
-    console.log(coord, "these are the coord")
+    //I'm just sending the geolocation points in a format like this 39.92,-23
+    var coord = req.query.lngLat.split(","); //or should this be req.params.geo.
 
-    var lonLat = {$geometry : {type: "Point", coordinates : coord}}
-    console.log(lonLat)
+    var newCoord = [parseFloat(coord[0]), parseFloat(coord[1])];
 
-    Cwspace.find({geoNear: 'cwspaces', near: {type: 'Point', coordinates: coord}}).limit(10).exec(function(err, cwspaces){
-        if (!err){
-            console.log(cwspaces)
-            res.jsonp(cwspaces)
-        }
-        else {
-            throw err
-        }
-    });
-
-    // Cwspace.find({
-    //     geoNear: "cwspaces", near: lonLat, 
-    // }).limit(10).exec(function(err,cwspaces) {
-    //     if (!err) {
-    //         console.log(cwspaces)
-    //         res.jsonp(cwspaces)
-    //     }
-    //     else {
-    //         throw err
-    //     }
-    // });
+    Cwspace.find({'geo': 
+        {$near: newCoord}}).
+            limit(10).exec(function(err, cwspaces) {
+            console.log(err, cwspaces);
+            res.json(cwspaces);
+        })
 };
 
 // Alternatively: 
