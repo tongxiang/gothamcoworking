@@ -14,6 +14,7 @@ var CwspaceSchema = new Schema({
     neighborhood: String,
     address: String,
     latlng: {latitude: Number, longitude: Number},
+    geo: {type: [Number], index: '2d'},
     floor_suite_or_room: String,
     pricing: String,
     membership_startupfees: String,
@@ -41,5 +42,9 @@ CwspaceSchema.statics.load = function(id, cb) {
         _id: id
     }).exec(cb);
 };
+
+// CwspaceSchema.methods.findNear = function(cb) {
+//     return this.model('CwspaceSchema').find({geo: { $nearSphere: this.geo, $maxDistance: 0.01}}, cb);
+// };
 
 exports.Cwspace = mongoose.model('Cwspace', CwspaceSchema);

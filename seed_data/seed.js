@@ -8,15 +8,15 @@ var Q = require('q');
 
 var Cwspace = cwspaceModel.Cwspace;
 
-var mongoose = require('mongoose');
-mongoose.connect("mongodb://heroku_app23270994:heroku_app23270994@dbh70.mongolab.com:27707/heroku_app23270994", function(err){
-    if (err) throw err;
-});
-
 // var mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/cwspaces', function(err){
+// mongoose.connect("mongodb://heroku_app23270994:heroku_app23270994@dbh70.mongolab.com:27707/heroku_app23270994", function(err){
 //     if (err) throw err;
 // });
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/cwspaces', function(err){
+    if (err) throw err;
+});
 
 var request = require('request');
 
@@ -54,9 +54,10 @@ var geocoding = function(cwspace){
         var aspace = new Cwspace({
             cwspace_name:           cwspace.cwspace_name,
             borough:                cwspace.borough,
-            neighborhood:           cwspace.neighborhood,
+            neighborhodod:           cwspace.neighborhood,
             address:                cwspace.address,
             latlng:                 {latitude: data.results[0].geometry.location.lat, longitude: data.results[0].geometry.location.lng},
+            geo:                    [data.results[0].geometry.location.lng, data.results[0].geometry.location.lat],
             floor_suite_or_room:    cwspace.floor_suite_or_room,
             pricing:                cwspace.pricing,
             membership_startupfees: cwspace.membership_startupfees,

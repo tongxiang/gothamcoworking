@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('gothamcoworking.cwspaces').controller('CwspacesController', ['$scope', '$stateParams', '$location', 'Global', 'Cwspaces', function ($scope, $stateParams, $location, Global, Cwspaces) {
+angular.module('gothamcoworking.cwspaces').controller('CwspacesController', ['$scope', '$stateParams', '$location', 'Global', 'Cwspaces', '$http', function ($scope, $stateParams, $location, Global, Cwspaces, $http) {
     $scope.global = Global;
 
     $scope.query = "";
-
     $scope.address ="";
+    $scope.details;
 
     $scope.map = {
         center: {
@@ -15,9 +15,9 @@ angular.module('gothamcoworking.cwspaces').controller('CwspacesController', ['$s
         zoom: 11
     };
 
-    $scope.redirectFunction = function(query){
-        $location.path('/search/'+query);
-    }
+    // $scope.redirectFunction = function(query){
+    //     $location.path('/search/'+query);
+    // }
 
     $scope.create = function() {
         var cwspace = new Cwspaces({
@@ -63,8 +63,26 @@ angular.module('gothamcoworking.cwspaces').controller('CwspacesController', ['$s
     $scope.find = function() {
         $scope.cwspaces = Cwspaces.query(function() {
             $scope.query = $stateParams.searchParams;
-            console.log($scope.query);
         });
+    };
+
+    $scope.locationSearch = function(){
+        // console.log("we're in location search");
+        // var objectLngLat = {longitude: $scope.details.geometry.location.A, latitude: $scope.details.geometry.location.k};
+        var stringLngLat = $scope.details.geometry.location.A + "," + $scope.details.geometry.location.k;
+        // console.log(stringLngLat);
+        $http({method: 'GET', url: '/cwspaces/longitudelatitude', params: {lngLat: stringLngLat}}).
+            success(function(data, status, headers, config){
+                console.log(data);
+                $scope.cwspaces = data;
+            }). 
+            error(function(data, status, headers, config){
+                console.log(status);
+            });
+
+        //we run a .get request on the Cwspaces service, while passing in the longlat object {}
+
+        //And then finally, the Mongo query returns an array of coworking spaces. We modify the $scope.cwspaces with what it returned 
 
     };
 
@@ -85,16 +103,11 @@ angular.module('gothamcoworking.cwspaces').controller('CwspacesController', ['$s
         }, function() {
             $scope.cws.latlng = $scope.cwspace.latlng;
 
-            console.log("about to attach Alleywatch boolean");
-
             if ($scope.cwspace.generic_description){
-                console.log("AlleyWatch is now false")
                 $scope.AlleyWatch = false;
             }
             else {
                 $scope.AlleyWatch = true;
-                console.log("AlleyWatch is now true")
-
             }
 
         });

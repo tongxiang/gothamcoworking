@@ -91,7 +91,7 @@ angular.module( "ngAutocomplete", [])
 
               scope.$apply(function() {
 
-                scope.details = result;
+                scope.details = result; //THIS IS IMPORTANT, PAY ATTENTION HERE
 
                 controller.$setViewValue(element.val());
               });
@@ -132,7 +132,7 @@ angular.module( "ngAutocomplete", [])
                           controller.$setViewValue(detailsResult.formatted_address);
                           element.val(detailsResult.formatted_address);
 
-                          scope.details = detailsResult;
+                          scope.details = detailsResult; //Pay attention here
 
                           //on focusout the value reverts, need to set it again.
                           var watchFocusOut = element.on('focusout', function(event) {

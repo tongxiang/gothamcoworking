@@ -14,6 +14,8 @@ var cwspaces = require('../controllers/cwspaces');
 
 module.exports = function(app) {
 
+    app.get('/cwspaces/longitudelatitude', cwspaces.nearPlaces);
+
     app.get('/cwspaces', cwspaces.all);
     // app.post('/cwspaces', cwspaces.create);
     app.get('/cwspaces/:cwspaceId', cwspaces.show);
@@ -22,4 +24,14 @@ module.exports = function(app) {
 
     // Finish with setting up the cwspaceId param
     app.param('cwspaceId', cwspaces.cwspace); //listening for anything passed into the URLs as the Id, and then we're running the cwspaces.cwspace function
+
 };
+
+
+
+// app.param('lngLat', cwspaces.findByLocation);
+
+//but how will Express differentiate between whether or not I'm passing in a lngLat and a cwspaceId? How will it know which param to run?
+
+//Do I need to make another service? 
+
