@@ -84,7 +84,12 @@
                     <h4 class="title-bg">{{cwspace.cwspace_name}} - {{cwspace.neighborhood}}</h4>
                     <div class="post-content">
                         <google-map center="map.center" zoom="map.zoom" draggable="true">
-                            <marker coords="cws.latlng"></marker>
+                            <marker coords="cws.latlng">
+                                <window show="false" closeClick="'closeClick'" ng-cloak>
+                                    <p><b>{{cwspace.cwspace_name}}</b>
+                                    <a href="https://www.google.com/maps/place/{{cwspace.address}}"> - get directions</a></p>
+                                </window>
+                            </marker>
                         </google-map>
                         <div class="post-body">
                             <div class="well">
@@ -96,6 +101,11 @@
                                     <tr>
                                       <td>ADDRESS</td>
                                       <td>{{cwspace.address}} {{cwspace.floor_suite_or_room}}- {{cwspace.borough}}</td>
+                                    </tr>
+
+                                    <tr>
+                                      <td>DIRECTIONS</td>
+                                      <td><a href="https://www.google.com/maps/place/{{cwspace.address}}">navigation</a></td>
                                     </tr>
 
                                     <tr>
@@ -159,6 +169,9 @@
                                 </div>
                             </div>
 
+                            <div><p>Are you the manager of {{cwspace.cwspace_name}} and would like to update your information?<a href="mailto:gothamcoworkingnyc@gmail.com?Subject=Updating%20My%20GCW%20Listing" target="_top">
+                            Contact us!</a> We'd love to help you build your community.</p</div>
+
                            <script type="text/ng-template" id="generic_description">
                                 <blockquote><b>WHAT THE BUZZ IS ABOUT</b><br>{{cwspace.generic_description}}</blockquote>
                            </script>
@@ -169,10 +182,7 @@
                             </div>
                         <div class="post-summary-footer">
                             <ul class="post-data">
-                                <li><i class="icon-calendar"></i> 02/04/13</li>
-                                <li><i class="icon-user"></i> <a href="#">Admin</a></li>
-                                <li><i class="icon-comment"></i> <a href="#">3 Comments</a></li>
-                                <li><i class="icon-tags"></i> <a href="#">photoshop</a>, <a href="#">design</a>, <a href="#">wordpress</a></li>
+                                <li><i class="icon-calendar"></i> 24 March 2014</li>
                             </ul>
                         </div>
                     </div>

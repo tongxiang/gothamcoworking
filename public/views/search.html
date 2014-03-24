@@ -82,24 +82,25 @@
                         <input ng-model="query" id="appendedInputButton" size="16" type="text" placeholder="ex: 'free coffee' or '3D printer'">
                         <input ng-autocomplete ng-model="address" id="appendedInputButton" size="16" type="text" placeholder="neighborhood or address" details="details">
                         <div class="btn-group">
-                          <button ui-sref="search" data-ng-click="locationSearch()" type="button" class="btn btn-default">Search</button>
+                          <button ui-sref="search" data-ng-click="locationSearch()" type="button" class="btn btn-default">find closest</button>
                         </div>
                     </form>
                 </div>
             </section>
         </div>
-
-        <div>Location Details: {{details}} {{details.geometry.location}}, Latitude: {{details.geometry.location.k}}, Longitude: {{details.geometry.location.A}}</div>
-
-
+        
         <div class="span12">
             <google-map 
                 center="map.center" 
                 zoom="map.zoom"
                 draggable="true">
             <marker data-ng-repeat="cwspace in cwspaces | filter: query" coords="cwspace.latlng">
-            </marker>
+                <window show="false" closeClick="'closeClick'" ng-cloak>
+                    <p><a ui-sref="cwspace_by_id({cwspaceId: cwspace._id})"><b>{{cwspace.cwspace_name}}</b></a>
+                    <a href="https://www.google.com/maps/place/{{cwspace.address}}"> - get directions</a></p>
+                </window>
 
+            </marker>
             </google-map>  
         </div>
     </div>
@@ -174,6 +175,10 @@
                                         <tr>
                                           <td>PRIVATE OFFICE - MONTHLY RATE</td>
                                           <td>{{cwspace.office_monthlyrate||"no information"}} for {{cwspace.office_capacity||"office pricing"}}</td>
+
+                                          <td><a href="https://www.google.com/maps/place/{{cwspace.address}}">DIRECTIONS</a></td>
+                                          <td></td>
+
                                         </tr>
                                       </table>
                                     </div>
