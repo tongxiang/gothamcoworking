@@ -45,10 +45,8 @@ exports.nearPlaces = function(req, res) {
     var lonLat = {$geometry : {type: "Point", coordinates : coord}}
     console.log(lonLat)
 
-    Cwspace.find({ geo: {
-        $near: lonLat, 
-    }}).limit(10).exec(function(err,cwspaces) {
-        if (!err) {
+    Cwspace.find({geoNear: 'cwspaces', near: {type: 'Point', coordinates: coord}}).limit(10).exec(function(err, cwspaces){
+        if (!err){
             console.log(cwspaces)
             res.jsonp(cwspaces)
         }
@@ -56,6 +54,18 @@ exports.nearPlaces = function(req, res) {
             throw err
         }
     });
+
+    // Cwspace.find({
+    //     geoNear: "cwspaces", near: lonLat, 
+    // }).limit(10).exec(function(err,cwspaces) {
+    //     if (!err) {
+    //         console.log(cwspaces)
+    //         res.jsonp(cwspaces)
+    //     }
+    //     else {
+    //         throw err
+    //     }
+    // });
 };
 
 // Alternatively: 
